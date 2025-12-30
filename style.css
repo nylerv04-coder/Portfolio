@@ -1,0 +1,233 @@
+/* --- 1. TVA / SEVERANCE COLOR PALETTE --- */
+:root {
+    --bg-wall: #D6D2C4;        /* Warm Beige Wall */
+    --bg-sidebar: #2B3A42;     /* Dark Bureaucratic Blue/Grey */
+    --text-main: #2F2F2F;      /* Off-Black ink */
+    --text-light: #E0E0E0;     /* Off-White paper */
+    --accent-orange: #D97B29;  /* TVA Orange */
+    --accent-green: #4A5D44;   /* Olive Drab */
+    --border-thick: 3px solid #1a1a1a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Space Mono', monospace; /* The "Terminal" font */
+    background-color: var(--bg-wall);
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden; /* Prevents the whole page from scrolling */
+}
+
+/* --- 2. THE MASTER LAYOUT (Fixes the Sidebar) --- */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* 320px Sidebar | Rest is Content */
+    height: 100vh;
+}
+
+/* --- 3. SIDEBAR STYLING --- */
+.sidebar {
+    background-color: var(--bg-sidebar);
+    color: var(--text-light);
+    border-right: var(--border-thick);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: inset -10px 0px 20px rgba(0,0,0,0.5); 
+    overflow-y: auto;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-orange);
+    margin-bottom: 20px;
+    filter: sepia(40%) contrast(1.2);
+    object-fit: cover;
+}
+
+.badge {
+    background-color: var(--accent-orange);
+    color: #000;
+    padding: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    border: 1px solid #000;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-item {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
+    color: var(--accent-orange);
+    transform: translateX(10px);
+}
+
+/* --- 4. MAIN CONTENT STYLING --- */
+.content-area {
+    padding: 60px;
+    overflow-y: auto; /* IMPORTANT: Allows only this side to scroll */
+    background-image: 
+        linear-gradient(rgba(214, 210, 196, 0.9), rgba(214, 210, 196, 0.9)),
+        url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+}
+
+.section-header {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--accent-green);
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+/* --- 5. BIO / SUMMARY SECTION --- */
+.bio-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.bio-text {
+    flex: 1;
+    line-height: 1.6;
+}
+
+.bio-image-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #2F3E46;
+    border: 2px dashed var(--accent-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-orange);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+/* --- 6. PROJECTS GRID SYSTEM (The 2-Column Fix) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Space between cards */
+    width: 100%;
+}
+
+.project-card {
+    border: var(--border-thick);
+    background-color: #F4F1EA;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.2); 
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+}
+
+.card-header {
+    background-color: var(--accent-green);
+    color: #fff;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: var(--border-thick);
+    font-size: 0.85rem;
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 150px;
+    background-color: #333;
+    color: var(--accent-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    margin-bottom: 20px;
+    border: 2px dashed var(--accent-orange);
+}
+
+.retro-btn {
+    background: transparent;
+    border: 2px solid var(--text-main);
+    padding: 10px 20px;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto; /* Pushes button to bottom */
+    box-shadow: 4px 4px 0px #000;
+}
+
+.retro-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .layout-grid {
+        grid-template-columns: 1fr; /* Stack sidebar on top */
+        height: auto;
+        overflow: auto;
+    }
+    
+    .sidebar {
+        height: auto;
+        border-right: none;
+        border-bottom: var(--border-thick);
+    }
+    
+    .content-area {
+        overflow: visible;
+        height: auto;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack projects on mobile */
+    }
+
+    .bio-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
