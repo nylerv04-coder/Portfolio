@@ -1,12 +1,19 @@
-/* --- 1. TVA / SEVERANCE COLOR PALETTE --- */
+/* --- 1. VINTAGE ANALOG PALETTE (Cornsilk & Olive) --- */
 :root {
-    --bg-wall: #D6D2C4;        /* Warm Beige Wall */
-    --bg-sidebar: #2B3A42;     /* Dark Bureaucratic Blue/Grey */
-    --text-main: #2F2F2F;      /* Off-Black ink */
-    --text-light: #E0E0E0;     /* Off-White paper */
-    --accent-orange: #D97B29;  /* TVA Orange */
-    --accent-green: #4A5D44;   /* Olive Drab */
-    --border-thick: 3px solid #1a1a1a;
+    /* Main Backgrounds */
+    --bg-wall: #FFF8DC;        /* "Cornsilk" - The main paper color */
+    --bg-sidebar: #30382B;     /* Deep Olive Drab (Replaces the Blue) */
+    
+    /* Text Colors */
+    --text-main: #3D3B30;      /* Warm Dark Grey (Softer than black) */
+    --text-light: #F3EFE0;     /* Creamy White for sidebar text */
+    
+    /* Accents */
+    --accent-orange: #CC6600;  /* Burnt Orange / Amber CRT */
+    --accent-green: #6B7A40;   /* Muted Olive Green for headers */
+    --accent-beige: #E6DCC3;   /* Darker Beige for cards/boxes */
+    
+    --border-thick: 3px solid #3D3B30;
 }
 
 * {
@@ -20,21 +27,21 @@ html {
 }
 
 body {
-    font-family: 'Space Mono', monospace; /* The "Terminal" font */
+    font-family: 'Space Mono', monospace;
     background-color: var(--bg-wall);
     color: var(--text-main);
     height: 100vh;
-    overflow: hidden; /* Prevents the whole page from scrolling */
+    overflow: hidden;
 }
 
-/* --- 2. THE MASTER LAYOUT (Fixes the Sidebar) --- */
+/* --- 2. THE MASTER LAYOUT --- */
 .layout-grid {
     display: grid;
-    grid-template-columns: 320px 1fr; /* 320px Sidebar | Rest is Content */
+    grid-template-columns: 320px 1fr;
     height: 100vh;
 }
 
-/* --- 3. SIDEBAR STYLING --- */
+/* --- 3. SIDEBAR STYLING (Updated for Green) --- */
 .sidebar {
     background-color: var(--bg-sidebar);
     color: var(--text-light);
@@ -43,7 +50,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: inset -10px 0px 20px rgba(0,0,0,0.5); 
+    /* Added a subtle texture overlay to the sidebar */
+    background-image: linear-gradient(rgba(48, 56, 43, 0.95), rgba(48, 56, 43, 0.95)), url("https://www.transparenttextures.com/patterns/stardust.png");
+    box-shadow: inset -10px 0px 20px rgba(0,0,0,0.3); 
     overflow-y: auto;
 }
 
@@ -53,19 +62,19 @@ body {
     border-radius: 50%;
     border: 3px solid var(--accent-orange);
     margin-bottom: 20px;
-    filter: sepia(40%) contrast(1.2);
+    filter: sepia(60%) contrast(1.1); /* More vintage photo effect */
     object-fit: cover;
 }
 
 .badge {
     background-color: var(--accent-orange);
-    color: #000;
+    color: #FFF8DC; /* Light text on orange badge */
     padding: 5px;
     font-weight: bold;
     display: inline-block;
     margin: 10px 0;
     font-size: 0.8rem;
-    border: 1px solid #000;
+    border: 1px solid var(--bg-wall);
 }
 
 .nav-links {
@@ -79,6 +88,8 @@ body {
     text-decoration: none;
     font-size: 1.1rem;
     transition: 0.2s;
+    font-family: 'Archivo Narrow', sans-serif; /* Cleaner font for links */
+    letter-spacing: 1px;
 }
 
 .nav-item:hover {
@@ -89,17 +100,18 @@ body {
 /* --- 4. MAIN CONTENT STYLING --- */
 .content-area {
     padding: 60px;
-    overflow-y: auto; /* IMPORTANT: Allows only this side to scroll */
-    background-image: 
-        linear-gradient(rgba(214, 210, 196, 0.9), rgba(214, 210, 196, 0.9)),
-        url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+    overflow-y: auto;
+    background-color: var(--bg-wall);
+    /* Subtle noise texture for paper feel */
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
 }
 
 .section-header {
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 2.5rem;
     text-transform: uppercase;
-    border-bottom: 4px solid var(--accent-green);
+    color: var(--accent-green); /* Olive headers */
+    border-bottom: 4px solid var(--accent-orange); /* Orange underline */
     margin-bottom: 40px;
     padding-bottom: 10px;
     letter-spacing: 2px;
@@ -111,6 +123,10 @@ body {
     gap: 30px;
     align-items: flex-start;
     margin-bottom: 40px;
+    background-color: var(--accent-beige); /* Box background */
+    padding: 20px;
+    border: 2px solid var(--accent-green);
+    box-shadow: 8px 8px 0px rgba(61, 59, 48, 0.1);
 }
 
 .bio-text {
@@ -121,7 +137,7 @@ body {
 .bio-image-placeholder {
     width: 200px;
     height: 200px;
-    background-color: #2F3E46;
+    background-color: var(--bg-sidebar);
     border: 2px dashed var(--accent-orange);
     display: flex;
     align-items: center;
@@ -133,32 +149,32 @@ body {
     flex-shrink: 0;
 }
 
-/* --- 6. PROJECTS GRID SYSTEM (The 2-Column Fix) --- */
+/* --- 6. PROJECTS GRID SYSTEM --- */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 30px; /* Space between cards */
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     width: 100%;
 }
 
 .project-card {
     border: var(--border-thick);
-    background-color: #F4F1EA;
+    background-color: var(--accent-beige); /* Darker beige card */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.2); 
+    box-shadow: 10px 10px 0px rgba(61, 59, 48, 0.2); 
     transition: transform 0.2s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+    box-shadow: 15px 15px 0px rgba(61, 59, 48, 0.3);
 }
 
 .card-header {
     background-color: var(--accent-green);
-    color: #fff;
+    color: #FFF8DC;
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
@@ -177,7 +193,7 @@ body {
 .placeholder-img {
     width: 100%;
     height: 150px;
-    background-color: #333;
+    background-color: var(--bg-sidebar); /* Dark olive box */
     color: var(--accent-orange);
     display: flex;
     align-items: center;
@@ -193,20 +209,22 @@ body {
     padding: 10px 20px;
     font-family: 'Space Mono', monospace;
     font-weight: bold;
+    color: var(--text-main);
     cursor: pointer;
-    margin-top: auto; /* Pushes button to bottom */
-    box-shadow: 4px 4px 0px #000;
+    margin-top: auto;
+    box-shadow: 4px 4px 0px var(--accent-orange); /* Orange shadow button */
+    transition: 0.1s;
 }
 
 .retro-btn:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #000;
+    box-shadow: 2px 2px 0px var(--accent-orange);
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 900px) {
     .layout-grid {
-        grid-template-columns: 1fr; /* Stack sidebar on top */
+        grid-template-columns: 1fr;
         height: auto;
         overflow: auto;
     }
@@ -223,7 +241,7 @@ body {
     }
 
     .projects-grid {
-        grid-template-columns: 1fr; /* Stack projects on mobile */
+        grid-template-columns: 1fr;
     }
 
     .bio-container {
