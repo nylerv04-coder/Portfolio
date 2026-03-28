@@ -69,7 +69,7 @@ body {
     width: 100%;
     text-align: center;
 }
- 
+
 /* --- 5. OVAL PROFILE PICTURE --- */
 .profile-img-wrapper {
     position: relative;
@@ -78,21 +78,23 @@ body {
     margin-bottom: 16px;
     flex-shrink: 0;
 }
- 
+
 .profile-img {
     width: 200px;
     height: 240px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 35%;  /* pan down into face, away from ceiling/background */
+    object-position: center 35%;
     border: 3px solid var(--accent-orange);
     filter: none;
+    image-rendering: -webkit-optimize-contrast; /* sharper downscaling in Chrome/Safari */
+    image-rendering: crisp-edges;               /* sharper downscaling in Firefox */
     display: block;
     box-shadow:
         0 0 0 3px var(--bg-sidebar),
         0 0 0 6px var(--accent-green);
 }
- 
+
 /* Decorative tick marks */
 .profile-img-wrapper::before,
 .profile-img-wrapper::after {
@@ -137,7 +139,7 @@ body {
 }
 
 .role {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-light);
     letter-spacing: 0.05em;
     opacity: 0.85;
@@ -145,8 +147,8 @@ body {
 }
 
 .role.sub {
-    opacity: 0.8;
-    font-size: 0.8rem;
+    opacity: 0.6;
+    font-size: 0.72rem;
 }
 
 .nav-links {
