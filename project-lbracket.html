@@ -8,42 +8,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
+
+    /* ── META BAR ───────────────────────────────────────── */
     .project-meta {
       background-color: var(--accent-beige);
       border: 2px solid var(--accent-green);
-      padding: 15px;
-      margin-bottom: 30px;
+      padding: 15px 20px;
+      margin-bottom: 28px;
       display: flex;
-      gap: 20px;
+      gap: 24px;
       flex-wrap: wrap;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      font-weight: bold;
     }
 
     .meta-item span {
       color: var(--accent-orange);
-      font-weight: bold;
     }
 
-    .project-body p {
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .project-body h3 {
-      color: var(--accent-orange);
-      font-family: 'Archivo Narrow', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      margin: 30px 0 10px;
-      border-left: 3px solid var(--accent-green);
-      padding-left: 10px;
-    }
-
-    .image-grid {
+    /* ── HERO IMAGE ROW ─────────────────────────────────── */
+    .hero-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin: 30px 0;
+      margin-bottom: 36px;
     }
 
     .img-block {
@@ -53,39 +41,80 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 220px;
+      min-height: 260px;
       color: var(--accent-orange);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-align: center;
-      padding: 10px;
-      gap: 8px;
+      padding: 12px;
+      gap: 10px;
+      overflow: hidden;
     }
 
-    .img-block .img-label {
+    .img-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-label {
       color: var(--accent-green);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: bold;
       letter-spacing: 0.08em;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
+    /* ── BODY TEXT ──────────────────────────────────────── */
+    .project-body {
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .project-body p {
+      margin-bottom: 22px;
+      font-weight: bold;
+    }
+
+    .project-body h3 {
+      color: var(--accent-orange);
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      margin: 36px 0 12px;
+      border-left: 4px solid var(--accent-green);
+      padding-left: 12px;
+    }
+
+    /* ── SECONDARY IMAGE PAIR ───────────────────────────── */
+    .secondary-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    /* ── RESULTS TABLE ──────────────────────────────────── */
     .result-table {
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
-      font-size: 0.88rem;
+      font-size: 1rem;
+      font-weight: bold;
     }
 
     .result-table th {
       background-color: var(--bg-sidebar);
       color: var(--accent-orange);
-      padding: 10px 14px;
+      padding: 12px 16px;
       text-align: left;
       border: 1px solid var(--accent-green);
       letter-spacing: 0.08em;
+      font-size: 0.95rem;
     }
 
     .result-table td {
-      padding: 10px 14px;
+      padding: 12px 16px;
       border: 1px solid var(--accent-green);
       color: var(--text-main);
     }
@@ -94,34 +123,38 @@
       background-color: var(--accent-beige);
     }
 
+    /* ── VERDICT BOXES ──────────────────────────────────── */
     .verdict {
       display: flex;
       gap: 16px;
-      margin: 20px 0;
+      margin: 24px 0;
     }
 
     .verdict-box {
       flex: 1;
       border: 2px solid var(--accent-green);
-      padding: 16px;
-      font-size: 0.85rem;
-      line-height: 1.7;
+      padding: 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      line-height: 1.8;
     }
 
     .verdict-box .verdict-label {
-      font-weight: bold;
       letter-spacing: 0.1em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: block;
+      font-size: 1.05rem;
     }
 
     .verdict-box.fail .verdict-label { color: #cc3333; }
     .verdict-box.pass .verdict-label { color: var(--accent-green); }
+
   </style>
 </head>
 <body>
 <div class="layout-grid">
 
+  <!-- ══ SIDEBAR ══════════════════════════════════════════ -->
   <aside class="sidebar">
     <div class="profile-section">
       <img src="profile.jpg" alt="Profile" class="profile-img">
@@ -147,61 +180,68 @@
     </div>
   </aside>
 
+  <!-- ══ MAIN CONTENT ══════════════════════════════════════ -->
   <main class="content-area">
     <section class="content-block">
 
+      <!-- Title -->
       <h2 class="section-header"> // CASE FILE: L-BRACKET STRUCTURAL STUDY</h2>
 
+      <!-- Meta bar -->
       <div class="project-meta">
         <div class="meta-item"><span>TYPE:</span> Independent Study</div>
         <div class="meta-item"><span>DATE:</span> November 2024</div>
-        <div class="meta-item"><span>TOOLS:</span> SolidWorks, Ansys, FDM 3D Printer</div>
+        <div class="meta-item"><span>TOOLS:</span> SolidWorks · Ansys · FDM 3D Printer</div>
         <div class="meta-item"><span>MATERIAL:</span> PLA</div>
+      </div>
+
+      <!-- ── HERO IMAGES — pull the reader in immediately ── -->
+      <div class="hero-images">
+        <div class="img-block">
+          [IMG_01 — YOUR CAD IMAGE HERE]
+          <span class="img-label">FIG. 1 — SOLIDWORKS: BASELINE vs. OPTIMIZED BRACKET</span>
+        </div>
+        <div class="img-block">
+          [IMG_04 — YOUR PHYSICAL TEST PHOTO HERE]
+          <span class="img-label">FIG. 2 — PHYSICAL TEST: LOADED BRACKETS</span>
+        </div>
       </div>
 
       <div class="project-body">
 
         <h3>// OBJECTIVE</h3>
         <p>
-          This project served as a hands-on introduction to the full engineering design loop — from CAD modeling and FEA simulation through to physical fabrication and load testing. The goal was simple: design two versions of an L-bracket, one structurally naive and one optimized, then verify the performance difference empirically with a 3D printer and dead-weight testing.
+          A hands-on run through the full engineering design loop — CAD modeling, FEA simulation, physical fabrication, and load testing. The goal: design two versions of an L-bracket, one structurally naive and one optimized, then prove the difference with a 3D printer and dead weights.
         </p>
 
         <h3>// DESIGN APPROACH</h3>
         <p>
-          Both brackets were modeled in SolidWorks. The first — the baseline design — featured a sharp 90° internal corner at the bend. Sharp interior corners are a well-known stress concentration site; under load, the notch effect focuses tensile stress at the tip of the corner, dramatically reducing the force required for crack initiation and propagation.
+          Both brackets were modeled in SolidWorks. The baseline featured a sharp 90° internal corner — a classic stress concentration site where the notch effect funnels tensile stress to a single point, dramatically lowering the load needed for crack initiation.
         </p>
         <p>
-          The optimized bracket addressed this through two modifications: the sharp interior corner was replaced with a generous fillet radius to redistribute stress over a larger area, and a triangular gusset was added to the inner face of the bend to stiffen the joint and shorten the moment arm acting on the critical cross-section. Print orientation was also varied between iterations to align layer boundaries away from the primary tensile load path, taking advantage of PLA's anisotropic properties.
+          The optimized version addressed this with two changes: a fillet radius at the inner corner to spread stress over a larger area, and a triangular gusset on the inner face to stiffen the joint and shorten the bending moment arm. Print orientation was also adjusted to align layer boundaries away from the primary tensile load path, exploiting PLA's anisotropic properties.
         </p>
 
-        <!-- IMAGE GRID -->
-        <div class="image-grid">
+        <!-- Ansys simulation images -->
+        <div class="secondary-images">
           <div class="img-block">
-            [IMG_01]
-            <span class="img-label">FIG. 1 — SOLIDWORKS: BASELINE BRACKET (SHARP CORNER)</span>
+            [IMG_02 — ANSYS BASELINE STRESS PLOT]
+            <span class="img-label">FIG. 3 — ANSYS: BASELINE — STRESS CONCENTRATION AT CORNER</span>
           </div>
           <div class="img-block">
-            [IMG_02]
-            <span class="img-label">FIG. 2 — SOLIDWORKS: OPTIMIZED BRACKET (FILLET + GUSSET)</span>
-          </div>
-          <div class="img-block">
-            [IMG_03]
-            <span class="img-label">FIG. 3 — ANSYS: STRESS DISTRIBUTION COMPARISON</span>
-          </div>
-          <div class="img-block">
-            [IMG_04]
-            <span class="img-label">FIG. 4 — PHYSICAL TEST: LOADED BRACKETS</span>
+            [IMG_03 — ANSYS OPTIMIZED STRESS PLOT]
+            <span class="img-label">FIG. 4 — ANSYS: OPTIMIZED — DISTRIBUTED STRESS FIELD</span>
           </div>
         </div>
 
         <h3>// SIMULATION — ANSYS FEA</h3>
         <p>
-          Prior to printing, both designs were run through a static structural analysis in Ansys. A fixed boundary condition was applied to the mounting face and a vertical downward load was applied to the horizontal shelf. The von Mises stress contour plots confirmed the hypothesis: the baseline design showed a pronounced stress concentration at the sharp corner exceeding material yield, while the optimized design distributed load smoothly through the fillet and into the gusset, keeping peak stresses well within the safe range.
+          Both designs were run through static structural analysis in Ansys before printing. Fixed boundary on the mounting face, vertical load on the horizontal shelf. The von Mises stress plots confirmed the hypothesis: the baseline showed stress exceeding yield at the sharp corner, while the optimized design kept peak stresses comfortably within the safe range throughout the fillet and gusset.
         </p>
 
         <h3>// PHYSICAL TESTING</h3>
         <p>
-          After printing both brackets in PLA, each was clamped to a fixed surface and loaded incrementally with dead weight. Results were consistent with simulation predictions.
+          Both brackets were printed in PLA, clamped to a fixed surface, and loaded incrementally with dead weight. Results matched simulation predictions cleanly.
         </p>
 
         <table class="result-table">
@@ -220,7 +260,7 @@
           <tr>
             <td>Optimized</td>
             <td>Fillet + triangular gusset</td>
-            <td>&gt; 10 kg (no failure)</td>
+            <td>&gt; 10 kg (survived)</td>
             <td>—</td>
           </tr>
         </table>
@@ -228,17 +268,17 @@
         <div class="verdict">
           <div class="verdict-box fail">
             <span class="verdict-label">[ BASELINE — FAILED ]</span>
-            Fractured cleanly at the inner corner under 10 kg of applied load. Failure was sudden with no visible prior deformation — consistent with stress concentration-driven brittle fracture in FDM PLA.
+            Fractured cleanly at the inner corner under 10 kg. Sudden failure with no visible prior deformation — consistent with stress concentration-driven brittle fracture in FDM PLA.
           </div>
           <div class="verdict-box pass">
             <span class="verdict-label">[ OPTIMIZED — SURVIVED ]</span>
-            Held full 10 kg test load with no fracture or visible deformation. The fillet and gusset successfully redistributed stress away from the critical joint region, validating both the simulation and the design logic.
+            Held the full 10 kg load with no fracture or visible deformation. The fillet and gusset successfully redistributed stress away from the critical joint, validating both the simulation and the design logic.
           </div>
         </div>
 
         <h3>// TAKEAWAYS</h3>
         <p>
-          This project demonstrated the real-world impact of stress concentration geometry on part performance — a &lt;5-minute CAD change (adding a fillet and gusset) more than doubled effective load capacity. It also reinforced the importance of print orientation as a design variable in FDM parts, and gave practical experience closing the loop between simulation outputs and physical test data.
+          A small geometry change — adding a fillet and gusset — more than doubled effective load capacity. This project reinforced the value of closing the simulation-to-hardware loop and highlighted print orientation as a real design variable in FDM parts, not an afterthought.
         </p>
 
       </div>
