@@ -35,19 +35,8 @@ body {
     position: relative;
 }
 
-/* --- 2. GEAR BACKGROUND ---
-   Individual SVG elements placed at fixed screen positions.
-   No pattern, no tiling, no data URLs — just SVGs in HTML. */
-.bg-gear {
-    position: fixed;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.11;
-    overflow: visible;
-}
 
-/* --- 3. LAYOUT ---
-   z-index: 1 ensures layout sits above the gear background */
+/* --- 3. LAYOUT --- */
 .layout-grid {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -74,35 +63,37 @@ body {
 .profile-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    align-items: center;   /* centers everything in the sidebar */
+    gap: 6px;
     margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
 }
 
 /* --- 5. OVAL PROFILE PICTURE --- */
 .profile-img-wrapper {
     position: relative;
-    width: 150px;
-    height: 180px;
+    width: 180px;
+    height: 220px;
     margin-bottom: 16px;
     flex-shrink: 0;
 }
 
 .profile-img {
-    width: 150px;
-    height: 180px;
-    border-radius: 50%;          /* perfect ellipse because w != h */
+    width: 180px;
+    height: 220px;
+    border-radius: 50%;
     object-fit: cover;
-    object-position: center center;
+    object-position: center top;  /* favour face/head */
     border: 3px solid var(--accent-orange);
-    filter: sepia(40%) contrast(1.05);
+    filter: none;                  /* no sepia — natural colours */
     display: block;
     box-shadow:
         0 0 0 3px var(--bg-sidebar),
-        0 0 0 5px var(--accent-green);
+        0 0 0 6px var(--accent-green);
 }
 
-/* Decorative crosshair ticks around the oval */
+/* Decorative tick marks */
 .profile-img-wrapper::before,
 .profile-img-wrapper::after {
     content: '';
@@ -110,27 +101,36 @@ body {
     background-color: var(--accent-orange);
 }
 .profile-img-wrapper::before {
-    top: -12px;
+    top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    width: 24px;
+    width: 28px;
     height: 2px;
 }
 .profile-img-wrapper::after {
-    left: -12px;
+    left: -14px;
     top: 50%;
     transform: translateY(-50%);
     width: 2px;
-    height: 24px;
+    height: 28px;
+}
+
+.sidebar h1 {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    color: var(--text-light);
+    text-align: center;
 }
 
 .badge {
     background-color: var(--accent-orange);
     color: #FFF8DC;
-    padding: 5px 8px;
+    padding: 5px 10px;
     font-weight: bold;
     display: inline-block;
-    margin: 6px 0;
+    margin: 8px 0 4px;
     font-size: 0.8rem;
     border: 1px solid var(--bg-wall);
     letter-spacing: 0.05em;
@@ -141,19 +141,12 @@ body {
     color: var(--text-light);
     letter-spacing: 0.05em;
     opacity: 0.85;
+    text-align: center;
 }
 
 .role.sub {
     opacity: 0.6;
     font-size: 0.72rem;
-}
-
-.sidebar h1 {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-    color: var(--text-light);
 }
 
 .nav-links {
