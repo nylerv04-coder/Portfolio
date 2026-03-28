@@ -84,7 +84,7 @@ body {
     height: 240px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 25%;  /* pan down into face, away from ceiling/background */
+    object-position: center 35%;  /* pan down into face, away from ceiling/background */
     border: 3px solid var(--accent-orange);
     filter: none;
     display: block;
