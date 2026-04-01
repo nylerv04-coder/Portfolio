@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RADAR SYSTEM | NYLE RAHMAN-VYAS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="layout-grid">
+
+    <aside class="sidebar">
+      <div class="profile-section">
+        <div class="profile-img-wrapper">
+          <img src="portfoliopfp1.png" alt="Nyle Rahman-Vyas" class="profile-img">
+        </div>
+        <h1>NYLE<br>RAHMAN-VYAS</h1>
+        <div class="badge">MECHANICAL ENGINEERING</div>
+        <p class="role">MINOR: COMPUTER SCIENCE</p>
+        <p class="role sub">RUTGERS UNIVERSITY</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">> HOME</a>
+        <a href="index.html#about"    class="nav-item">> OVERVIEW</a>
+        <a href="index.html#projects" class="nav-item">> PROJECTS</a>
+        <a href="index.html#contact"  class="nav-item">> CONTACT</a>
+      </nav>
+
+      <div class="footer-status">
+        <p>SYSTEM STATUS: <span style="color: #6B7A40">ONLINE</span></p>
+        <p>LAST UPDATE: 9:50</p>
+      </div>
+    </aside>
+
+    <main class="content-area">
+
+      <section class="content-block">
+        <h2 class="section-header">AUTOMATED RADAR TRACKING SYSTEM</h2>
+        
+        <div class="placeholder-img" style="height: 300px; font-size: 1.5rem; margin-bottom: 40px;">
+          [RADAR_GUI_OR_HARDWARE_IMG]
+        </div>
+
+        <div class="bio-container">
+          <div class="bio-text">
+            <h3 style="color: var(--accent-orange); margin-bottom: 10px;">PROJECT OVERVIEW</h3>
+            <p>Developed a real-time radar scanning and target detection system using an Arduino Uno, an ultrasonic sensor, and a custom-built Python graphical interface. The system autonomously sweeps its environment, processes spatial data, and visually logs physical objects on a digital radar screen while providing local hardware alerts.</p>
+          </div>
+        </div>
+
+        <div class="bio-container">
+          <div class="bio-text">
+            <h3 style="color: var(--accent-orange); margin-bottom: 15px;">TECHNICAL IMPLEMENTATION & ACCOMPLISHMENTS</h3>
+            <ul style="list-style-type: square; margin-left: 20px; line-height: 1.8;">
+              <li><strong>Hardware Integration:</strong> Configured an SG90 servo motor and HC-SR04 sensor to perform synchronized environmental sweeps. Integrated an LCD1602 digital display to provide live on-board diagnostics, including current sweep angles and "Target Locked" alerts.</li>
+              <li><strong>Software Development:</strong> Engineered the C++ microcontroller logic using a state machine to handle scanning phases without blocking motor actuation.</li>
+              <li><strong>Data Visualization:</strong> Built a custom Python application utilizing Pygame and PySerial. The software parses serial data structures from the Arduino and translates polar coordinates into a high-fidelity Cartesian radar display, complete with persistent target tracking and distance scaling.</li>
+              <li><strong>System Optimization:</strong> Tuned the data polling rates and LCD refresh cycles to eliminate hardware ghosting and ensure a perfectly synchronized digital and physical tracking experience.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bio-container">
+          <div class="bio-text">
+            <h3 style="color: var(--accent-orange); margin-bottom: 15px;">FUTURE SCOPE & PHASE 2 DEVELOPMENT</h3>
+            <p style="margin-bottom: 15px;">The next phase of this project will transition the system from a breadboard prototype to a fully integrated mechanical assembly. Key development goals include:</p>
+            <ul style="list-style-type: square; margin-left: 20px; line-height: 1.8;">
+              <li><strong>2-Axis Articulation:</strong> Introducing a second servo motor to create a Pan/Tilt mechanism, expanding the tracking capabilities to a full hemispherical range.</li>
+              <li><strong>Automated Turret Integration:</strong> Mounting a laser diode to the new actuator assembly and writing tracking heuristics to autonomously aim and follow detected targets.</li>
+              <li><strong>Mechanical Design:</strong> Utilizing CAD software to design and 3D print custom structural components. This will include a rigid sensor chassis, optimized motor mounts, and an integrated electronics housing to clean up the wiring and improve overall system durability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+          <a href="index.html#projects" style="text-decoration: none;">
+            <button class="retro-btn">< RETURN TO PROJECTS</button>
+          </a>
+        </div>
+
+      </section>
+      
+      <div style="height: 100px;"></div>
+
+    </main>
+  </div>
+
+</body>
+</html>
