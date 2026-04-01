@@ -1,5 +1,5 @@
 /* ============================================================
-   NYLE RAHMAN-VYAS — PORTFOLIO STYLESHEET
+   NYLE RAHMAN-VYAS - PORTFOLIO STYLESHEET
    ============================================================ */
 
 /* --- 1. PALETTE --- */
@@ -26,7 +26,7 @@ html {
 
 body {
     font-family: 'Space Mono', monospace;
-    /* Paper texture lives here — behind the gear layer via z-index stacking */
+    /* Paper texture lives here - behind the gear layer via z-index stacking */
     background-color: var(--bg-wall);
     background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
     color: var(--text-main);
@@ -183,7 +183,7 @@ body {
 .content-area {
     padding: 60px;
     overflow-y: auto;
-    /* Fully transparent — paper texture and gear pattern come from body */
+    /* Fully transparent - paper texture and gear pattern come from body */
     background-color: transparent;
     background-image: none;
 }
@@ -241,6 +241,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     width: 100%;
+    align-items: stretch; /* Forces cards in the same row to match heights */
 }
 
 .project-card {
@@ -248,7 +249,7 @@ body {
     background-color: var(--accent-beige);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    height: 100%; /* Allows the card to take up the full grid space */
     box-shadow: 10px 10px 0px rgba(61,59,48,0.2);
     transition: transform 0.2s ease;
 }
@@ -271,9 +272,15 @@ body {
 
 .card-body {
     padding: 20px;
-    flex-grow: 1;
+    flex-grow: 1; /* Allows the content area to expand */
     display: flex;
     flex-direction: column;
+}
+
+/* Pushes the link wrapper (and the button inside it) to the bottom */
+.card-body a {
+    margin-top: auto;
+    display: block; 
 }
 
 .placeholder-img {
@@ -297,7 +304,6 @@ body {
     font-weight: bold;
     color: var(--text-main);
     cursor: pointer;
-    margin-top: auto;
     box-shadow: 4px 4px 0px var(--accent-orange);
     transition: 0.1s;
 }
