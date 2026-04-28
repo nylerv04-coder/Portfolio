@@ -12,8 +12,6 @@
     --accent-green:  #6B7A40;
     --accent-beige:  #E6DCC3;
     --border-thick:  3px solid #3D3B30;
-    --glow-orange:   0 0 15px rgba(204, 102, 0, 0.3);
-    --glow-green:    0 0 15px rgba(107, 122, 64, 0.25);
 }
 
 * {
@@ -28,6 +26,7 @@ html {
 
 body {
     font-family: 'Space Mono', monospace;
+    /* Paper texture lives here - behind the gear layer via z-index stacking */
     background-color: var(--bg-wall);
     background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
     color: var(--text-main);
@@ -36,7 +35,8 @@ body {
     position: relative;
 }
 
-/* --- LAYOUT --- */
+
+/* --- 3. LAYOUT --- */
 .layout-grid {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -45,7 +45,7 @@ body {
     z-index: 1;
 }
 
-/* --- SIDEBAR --- */
+/* --- 4. SIDEBAR --- */
 .sidebar {
     background-color: var(--bg-sidebar);
     color: var(--text-light);
@@ -63,14 +63,14 @@ body {
 .profile-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;   /* centers everything in the sidebar */
     gap: 6px;
     margin-bottom: 40px;
     width: 100%;
     text-align: center;
 }
 
-/* --- PROFILE PICTURE --- */
+/* --- 5. OVAL PROFILE PICTURE --- */
 .profile-img-wrapper {
     position: relative;
     width: 200px;
@@ -86,15 +86,16 @@ body {
     object-fit: cover;
     object-position: center 35%;
     border: 3px solid var(--accent-orange);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    filter: none;
+    image-rendering: -webkit-optimize-contrast; /* sharper downscaling in Chrome/Safari */
+    image-rendering: crisp-edges;               /* sharper downscaling in Firefox */
     display: block;
     box-shadow:
         0 0 0 3px var(--bg-sidebar),
-        0 0 0 6px var(--accent-green),
-        var(--glow-orange);
+        0 0 0 6px var(--accent-green);
 }
 
+/* Decorative tick marks */
 .profile-img-wrapper::before,
 .profile-img-wrapper::after {
     content: '';
@@ -135,7 +136,6 @@ body {
     font-size: 0.8rem;
     border: 1px solid var(--bg-wall);
     letter-spacing: 0.05em;
-    box-shadow: var(--glow-orange);
 }
 
 .role {
@@ -169,23 +169,21 @@ body {
 .nav-item:hover {
     color: var(--accent-orange);
     transform: translateX(10px);
-    text-shadow: var(--glow-orange);
 }
 
 .footer-status {
     font-size: 0.75rem;
     color: var(--text-light);
     opacity: 0.7;
-    line-height: 1.9;
-    border-top: 1px solid rgba(243, 239, 224, 0.15);
-    padding-top: 15px;
-    margin-top: 20px;
+    line-height: 1.8;
 }
 
-/* --- MAIN CONTENT AREA --- */
+/* --- 6. MAIN CONTENT AREA ---
+   Slightly transparent so gear pattern bleeds through */
 .content-area {
     padding: 60px;
     overflow-y: auto;
+    /* Fully transparent - paper texture and gear pattern come from body */
     background-color: transparent;
     background-image: none;
 }
@@ -199,10 +197,9 @@ body {
     margin-bottom: 40px;
     padding-bottom: 10px;
     letter-spacing: 2px;
-    text-shadow: 0 0 30px rgba(107, 122, 64, 0.2);
 }
 
-/* --- BIO / INFO BLOCKS --- */
+/* --- 7. BIO SECTION --- */
 .content-block {
     margin-bottom: 60px;
 }
@@ -216,21 +213,11 @@ body {
     padding: 20px;
     border: 2px solid var(--accent-green);
     box-shadow: 8px 8px 0px rgba(61,59,48,0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.bio-container:hover {
-    box-shadow: 8px 8px 0px rgba(61,59,48,0.15), 0 0 20px rgba(204, 102, 0, 0.07);
 }
 
 .bio-text {
     flex: 1;
-    line-height: 1.75;
-}
-
-.bio-text p {
-    font-size: 0.88rem;
-    opacity: 0.85;
+    line-height: 1.6;
 }
 
 .bio-image-placeholder {
@@ -248,13 +235,13 @@ body {
     flex-shrink: 0;
 }
 
-/* --- PROJECTS GRID --- */
+/* --- 8. PROJECTS GRID --- */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     width: 100%;
-    align-items: stretch;
+    align-items: stretch; /* Forces cards in the same row to match heights */
 }
 
 .project-card {
@@ -262,15 +249,14 @@ body {
     background-color: var(--accent-beige);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100%; /* Allows the card to take up the full grid space */
     box-shadow: 10px 10px 0px rgba(61,59,48,0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
+    transition: transform 0.2s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 15px 15px 0px rgba(61,59,48,0.3), 0 0 25px rgba(204, 102, 0, 0.08);
+    box-shadow: 15px 15px 0px rgba(61,59,48,0.3);
 }
 
 .card-header {
@@ -279,48 +265,25 @@ body {
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-weight: bold;
     border-bottom: var(--border-thick);
     font-size: 0.85rem;
 }
 
-.case-num {
-    font-size: 0.62rem;
-    font-weight: normal;
-    letter-spacing: 1.5px;
-    opacity: 0.65;
-    color: #FFF8DC;
-}
-
 .card-body {
     padding: 20px;
-    flex-grow: 1;
+    flex-grow: 1; /* Allows the content area to expand */
     display: flex;
     flex-direction: column;
 }
 
+/* Pushes the link wrapper (and the button inside it) to the bottom */
 .card-body a {
     margin-top: auto;
     display: block;
 }
 
-.card-body h3 {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1.05rem;
-    color: var(--accent-green);
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-.card-body p {
-    font-size: 0.82rem;
-    line-height: 1.65;
-    opacity: 0.78;
-    margin-bottom: 15px;
-}
-
-/* --- IMAGE THUMBNAILS --- */
+/* --- IMAGE THUMBNAILS (4:3 ratio for consistent card sizing) --- */
 .placeholder-img {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -330,59 +293,8 @@ body {
     align-items: center;
     justify-content: center;
     font-family: monospace;
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-    border: 2px solid rgba(204, 102, 0, 0.45);
-    position: relative;
-    overflow: hidden;
-}
-
-/* CRT scanline overlay */
-.placeholder-img::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent 0px,
-        transparent 2px,
-        rgba(0, 0, 0, 0.07) 2px,
-        rgba(0, 0, 0, 0.07) 3px
-    );
-    pointer-events: none;
-}
-
-.placeholder-img.redacted {
-    opacity: 0.2;
-    filter: blur(1px);
-}
-
-/* Wrapper for classified image + stamp */
-.img-wrapper {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.img-wrapper .placeholder-img {
-    margin-bottom: 0;
-}
-
-.classified-stamp {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-12deg);
-    border: 3px solid rgba(204, 102, 0, 0.85);
-    color: rgba(204, 102, 0, 0.85);
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 5px;
-    padding: 5px 14px;
-    pointer-events: none;
-    white-space: nowrap;
-    z-index: 2;
+    margin-bottom: 20px;
+    border: 2px dashed var(--accent-orange);
 }
 
 /* Real images inside project cards */
@@ -390,24 +302,10 @@ body {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    margin-bottom: 15px;
-    border: 2px solid rgba(204, 102, 0, 0.45);
+    margin-bottom: 20px;
     display: block;
 }
 
-/* TVA metadata label */
-.tva-meta {
-    display: block;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--accent-orange);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    opacity: 0.55;
-    margin-bottom: 10px;
-}
-
-/* --- RETRO BUTTON --- */
 .retro-btn {
     background: transparent;
     border: 2px solid var(--text-main);
@@ -417,12 +315,11 @@ body {
     color: var(--text-main);
     cursor: pointer;
     box-shadow: 4px 4px 0px var(--accent-orange);
-    transition: all 0.15s ease;
+    transition: 0.1s;
 }
 
 .retro-btn:hover {
     background-color: var(--accent-beige);
-    box-shadow: 4px 4px 0px var(--accent-orange), 0 0 14px rgba(204, 102, 0, 0.2);
 }
 
 .retro-btn:active {
@@ -430,27 +327,7 @@ body {
     box-shadow: 2px 2px 0px var(--accent-orange);
 }
 
-/* --- ANIMATIONS --- */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-}
-
-.blink {
-    animation: blink 1.2s step-end infinite;
-    color: var(--accent-orange);
-}
-
-@keyframes pulse-glow {
-    0%, 100% { text-shadow: 0 0 4px rgba(107, 122, 64, 0.6); }
-    50%       { text-shadow: 0 0 14px rgba(107, 122, 64, 1), 0 0 28px rgba(107, 122, 64, 0.5); }
-}
-
-.online-status {
-    animation: pulse-glow 2.5s ease-in-out infinite;
-}
-
-/* --- MOBILE --- */
+/* --- 9. MOBILE --- */
 @media (max-width: 900px) {
     body { overflow: auto; }
 
@@ -480,3 +357,48 @@ body {
         align-items: center;
     }
 }
+
+
+/* ============================================================
+   YOUTUBE VIDEO EMBED — HOW TO USE
+   ============================================================
+
+   1. Upload your demo video to YouTube. Set visibility to "Unlisted"
+      so it won't show up in search but works via direct link.
+
+   2. Copy the video ID from the URL:
+      https://www.youtube.com/watch?v=XXXXXXXXXXX
+                                        ^^^^^^^^^^^
+                                        this part is the ID
+
+   3. Paste this HTML block wherever you want the video on a project page
+      (e.g. inside .bio-container or after the overview paragraph):
+
+   <div class="video-wrapper">
+     <iframe
+       src="https://www.youtube.com/embed/XXXXXXXXXXX"
+       title="Project Demo"
+       frameborder="0"
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+       allowfullscreen>
+     </iframe>
+   </div>
+
+   4. Add this CSS to style it (matches the site aesthetic):
+
+   .video-wrapper {
+       width: 100%;
+       aspect-ratio: 16 / 9;
+       border: var(--border-thick);
+       box-shadow: 8px 8px 0px rgba(61,59,48,0.2);
+       margin-bottom: 30px;
+       overflow: hidden;
+   }
+
+   .video-wrapper iframe {
+       width: 100%;
+       height: 100%;
+       display: block;
+   }
+
+   ============================================================ */
