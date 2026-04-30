@@ -26,14 +26,7 @@
       color: var(--accent-orange);
     }
 
-    /* ── HERO IMAGE ROW ─────────────────────────────────── */
-    .hero-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-
+    /* ── IMAGE BLOCKS ───────────────────────────────────── */
     .img-block {
       background-color: var(--bg-sidebar);
       border: var(--border-thick);
@@ -41,20 +34,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 260px;
       color: var(--accent-orange);
       font-size: 0.85rem;
       text-align: center;
-      padding: 12px;
-      gap: 10px;
+      padding: 0;
       overflow: hidden;
     }
 
     .img-block img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
     }
 
     .img-label {
@@ -62,7 +52,23 @@
       font-size: 0.78rem;
       font-weight: bold;
       letter-spacing: 0.08em;
-      margin-top: 6px;
+      padding: 8px 12px;
+      flex-shrink: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: var(--bg-sidebar);
+    }
+
+    /* ── IMAGE LAYOUT ───────────────────────────────────── */
+    .img-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .img-full {
+      margin: 28px 0;
     }
 
     /* ── BODY TEXT ──────────────────────────────────────── */
@@ -84,14 +90,6 @@
       margin: 36px 0 12px;
       border-left: 4px solid var(--accent-green);
       padding-left: 12px;
-    }
-
-    /* ── SECONDARY IMAGE PAIR ───────────────────────────── */
-    .secondary-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 28px 0;
     }
 
     /* ── RESULTS TABLE ──────────────────────────────────── */
@@ -195,15 +193,11 @@
         <div class="meta-item"><span>SKILLS:</span> CAD Modeling · FEA Simulation · Design Optimization</div>
       </div>
 
-      <!-- ── HERO IMAGES — pull the reader in immediately ── -->
-      <div class="hero-images">
+      <!-- ── HERO IMAGE ── -->
+      <div class="img-full">
         <div class="img-block">
-          [IMG_01 — YOUR CAD IMAGE HERE]
-          <span class="img-label">FIG. 1 — SOLIDWORKS: BASELINE vs. OPTIMIZED BRACKET</span>
-        </div>
-        <div class="img-block">
-          [IMG_04 — YOUR PHYSICAL TEST PHOTO HERE]
-          <span class="img-label">FIG. 2 — PHYSICAL TEST: LOADED BRACKETS</span>
+          <img src="Bracket Side by Side.jpeg" alt="Baseline L-bracket (left) and optimized W-bracket (right) mounted side by side before testing" style="height: 340px; object-fit: cover;">
+          <span class="img-label">FIG. 1 — BASELINE L-BRACKET (LEFT) vs. OPTIMIZED W-BRACKET (RIGHT) — PRE-TEST</span>
         </div>
       </div>
 
@@ -212,6 +206,9 @@
         <h3>// OBJECTIVE</h3>
         <p>
           A hands-on run through the full engineering design loop — CAD modeling, FEA simulation, physical fabrication, and load testing. The goal: design two versions of an L-bracket, one structurally naive and one optimized, then prove the difference with a 3D printer and dead weights.
+        </p>
+        <p>
+          Both brackets are L-shaped wall mounts with identical outer dimensions. The one labeled "L-bracket" is the baseline design. The one labeled "W-bracket" is the redesigned, optimized version — built to withstand significantly more force. It did.
         </p>
 
         <h3>// DESIGN APPROACH</h3>
@@ -222,15 +219,35 @@
           The optimized version addressed this with two changes: a fillet radius at the inner corner to spread stress over a larger area, and a triangular gusset on the inner face to stiffen the joint and shorten the bending moment arm. Print orientation was also adjusted to align layer boundaries away from the primary tensile load path, exploiting PLA's anisotropic properties.
         </p>
 
-        <!-- Ansys simulation images -->
-        <div class="secondary-images">
+        <h3>// CAD MODELS</h3>
+        <p>
+          Both designs were fully modeled in SolidWorks before printing. The baseline L-bracket is a plain right-angle bracket with a sharp 90° inner corner and no reinforcement. The optimized W-bracket adds a triangular gusset at the inner face and a fillet radius at the bend — same outer footprint, fundamentally different structural geometry.
+        </p>
+
+        <div class="img-pair">
           <div class="img-block">
-            [IMG_02 — ANSYS BASELINE STRESS PLOT]
-            <span class="img-label">FIG. 3 — ANSYS: BASELINE — STRESS CONCENTRATION AT CORNER</span>
+            <img src="LbracketCAD.png" alt="SolidWorks CAD render of the baseline L-bracket" style="object-fit: contain; background: #dce0e8;">
+            <span class="img-label">FIG. 2 — SOLIDWORKS CAD: BASELINE L-BRACKET — SHARP 90° CORNER, NO GUSSET</span>
           </div>
           <div class="img-block">
-            [IMG_03 — ANSYS OPTIMIZED STRESS PLOT]
-            <span class="img-label">FIG. 4 — ANSYS: OPTIMIZED — DISTRIBUTED STRESS FIELD</span>
+            <img src="WbracketCAD.png" alt="SolidWorks CAD render of the optimized W-bracket with gusset" style="object-fit: contain; background: #dce0e8;">
+            <span class="img-label">FIG. 3 — SOLIDWORKS CAD: OPTIMIZED W-BRACKET — FILLET + TRIANGULAR GUSSET</span>
+          </div>
+        </div>
+
+        <h3>// ENGINEERING DRAWINGS</h3>
+        <p>
+          Formal engineering drawings were produced for both brackets per standard drafting conventions. Both share identical outer dimensions — 1.75" mounting face width, 3.50" vertical height, 2.30" shelf depth, 0.25" wall thickness. The only structural differences between the two are the presence of the gusset and fillet in the W-bracket. Same footprint, fundamentally different load behavior.
+        </p>
+
+        <div class="img-pair">
+          <div class="img-block">
+            <img src="Lbracketdeaw.JPG" alt="Engineering drawing of the baseline L-bracket with dimensions" style="object-fit: contain; background: white;">
+            <span class="img-label">FIG. 4 — ENGINEERING DRAWING: BASELINE L-BRACKET (SCALE 1:2) — NOTE SHARP 90° ANNOTATION</span>
+          </div>
+          <div class="img-block">
+            <img src="WbracketDraw.JPG" alt="Engineering drawing of the optimized W-bracket with gusset and fillet annotations" style="object-fit: contain; background: white;">
+            <span class="img-label">FIG. 5 — ENGINEERING DRAWING: OPTIMIZED W-BRACKET (SCALE 1:2) — GUSSET + FILLET ANNOTATED</span>
           </div>
         </div>
 
@@ -239,10 +256,28 @@
           Both designs were run through static structural analysis in Ansys before printing. Fixed boundary on the mounting face, vertical load on the horizontal shelf. The von Mises stress plots confirmed the hypothesis: the baseline showed stress exceeding yield at the sharp corner, while the optimized design kept peak stresses comfortably within the safe range throughout the fillet and gusset.
         </p>
 
+        <div class="img-pair">
+          <div class="img-block">
+            <img src="lbracket Ansys.jpeg" alt="Ansys von Mises stress plot of the baseline L-bracket showing peak stress at the inner corner" style="object-fit: contain; background: #1a1a1a;">
+            <span class="img-label">FIG. 6 — ANSYS FEA: BASELINE L-BRACKET — PEAK VON MISES STRESS CONCENTRATED AT INNER CORNER</span>
+          </div>
+          <div class="img-block">
+            <img src="Wbracket Ansys.jpeg" alt="Ansys von Mises stress plot of the optimized W-bracket showing distributed stress through the gusset" style="object-fit: contain; background: #1a1a1a;">
+            <span class="img-label">FIG. 7 — ANSYS FEA: OPTIMIZED W-BRACKET — STRESS DISTRIBUTED THROUGH GUSSET, NO CRITICAL CONCENTRATION</span>
+          </div>
+        </div>
+
         <h3>// PHYSICAL TESTING</h3>
         <p>
-          Both brackets were printed in PLA, clamped to a fixed surface, and loaded incrementally with dead weight. Results matched simulation predictions cleanly.
+          Both brackets were printed in PLA, mounted to a rigid cardboard surface, and loaded incrementally with a standard weight plate hung from the shelf. The experiment was straightforward: keep adding load until something breaks — or doesn't. Results matched simulation predictions cleanly.
         </p>
+
+        <div class="img-full">
+          <div class="img-block">
+            <img src="BracketExperiment.jpeg" alt="Baseline L-bracket under a 10 kg plate weight during load testing, shelf visibly deflecting" style="height: 460px; object-fit: cover;">
+            <span class="img-label">FIG. 8 — PHYSICAL TEST IN PROGRESS: BASELINE L-BRACKET (LEFT) LOADED WITH 10 KG PLATE WEIGHT</span>
+          </div>
+        </div>
 
         <table class="result-table">
           <tr>
@@ -252,13 +287,13 @@
             <th>FAILURE MODE</th>
           </tr>
           <tr>
-            <td>Baseline</td>
+            <td>Baseline L-Bracket</td>
             <td>Sharp 90° corner, no gusset</td>
             <td>&lt; 10 kg</td>
             <td>Brittle fracture at inner corner</td>
           </tr>
           <tr>
-            <td>Optimized</td>
+            <td>Optimized W-Bracket</td>
             <td>Fillet + triangular gusset</td>
             <td>&gt; 10 kg (survived)</td>
             <td>—</td>
@@ -267,12 +302,28 @@
 
         <div class="verdict">
           <div class="verdict-box fail">
-            <span class="verdict-label">[ BASELINE — FAILED ]</span>
+            <span class="verdict-label">[ BASELINE L-BRACKET — FAILED ]</span>
             Fractured cleanly at the inner corner under 10 kg. Sudden failure with no visible prior deformation — consistent with stress concentration-driven brittle fracture in FDM PLA.
           </div>
           <div class="verdict-box pass">
-            <span class="verdict-label">[ OPTIMIZED — SURVIVED ]</span>
+            <span class="verdict-label">[ OPTIMIZED W-BRACKET — SURVIVED ]</span>
             Held the full 10 kg load with no fracture or visible deformation. The fillet and gusset successfully redistributed stress away from the critical joint, validating both the simulation and the design logic.
+          </div>
+        </div>
+
+        <h3>// END OF EXPERIMENT</h3>
+        <p>
+          The L-bracket's horizontal shelf fractured cleanly at the inner corner — exactly where FEA predicted peak stress. The W-bracket, tested under the same conditions, showed zero fracture or visible deformation. The side-by-side result made the structural advantage unmistakable.
+        </p>
+
+        <div class="img-pair">
+          <div class="img-block">
+            <img src="EndOfExperiment.jpeg" alt="Immediately after the test: L-bracket shelf fractured off the mount while W-bracket remains intact on the board" style="height: 480px; object-fit: cover;">
+            <span class="img-label">FIG. 9 — IMMEDIATELY POST-TEST: L-BRACKET SHELF FRACTURED CLEAN OFF. W-BRACKET (RIGHT) FULLY INTACT.</span>
+          </div>
+          <div class="img-block">
+            <img src="PostExperiment.jpeg" alt="Clean post-test comparison: broken baseline L-bracket on the left, intact optimized W-bracket on the right" style="height: 480px; object-fit: cover;">
+            <span class="img-label">FIG. 10 — POST-TEST: BROKEN BASELINE L-BRACKET (LEFT) vs. SURVIVING OPTIMIZED W-BRACKET (RIGHT)</span>
           </div>
         </div>
 
