@@ -304,6 +304,14 @@ body {
     object-fit: cover;
     margin-bottom: 20px;
     display: block;
+    border: 3px solid var(--accent-orange);
+}
+
+/* Center a lone card in the last row of a 2-col grid */
+.project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 15px);
+    justify-self: center;
 }
 
 .retro-btn {
@@ -320,6 +328,17 @@ body {
 
 .retro-btn:hover {
     background-color: var(--accent-beige);
+}
+
+/* Variant for use on dark backgrounds (e.g. LinkedIn card) */
+.retro-btn-light {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+    box-shadow: 4px 4px 0px var(--accent-orange);
+}
+.retro-btn-light:hover {
+    background-color: var(--accent-orange);
+    color: var(--bg-wall);
 }
 
 .retro-btn:active {
