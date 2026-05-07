@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:nylerv04-coder.github.io)"
+      "WebFetch(domain:nylerv04-coder.github.io)",
+      "Bash(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\Nyle\\\\Downloads\\\\Work Stuff\\\\Portfolio\\\\radar\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(Move-Item -Path \"C:\\\\Users\\\\Nyle\\\\Downloads\\\\Work Stuff\\\\Portfolio\\\\RadarThumbnail.jpg\" -Destination \"C:\\\\Users\\\\Nyle\\\\Downloads\\\\Work Stuff\\\\Portfolio\\\\radar\\\\RadarThumbnail.jpg\" -Force)",
+      "Bash(Write-Output \"Done\")"
     ]
   }
 }
