@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYLE RAHMAN-VYAS | DEEP LEARNING IN MECHANICS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── META BAR ───────────────────────────────────────── */
+    .project-meta {
+      background-color: var(--accent-beige);
+      border: 2px solid var(--accent-green);
+      padding: 15px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .meta-item span {
+      color: var(--accent-orange);
+    }
+
+    /* ── IMAGE BLOCKS ───────────────────────────────────── */
+    .img-block {
+      background-color: var(--bg-sidebar);
+      border: var(--border-thick);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-orange);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .img-block img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .img-label {
+      color: var(--accent-beige);
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      padding: 8px 12px;
+      flex-shrink: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: var(--bg-sidebar);
+    }
+
+    /* ── IMAGE LAYOUT ───────────────────────────────────── */
+    .img-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .img-full {
+      margin: 28px 0;
+    }
+
+    /* ── BODY TEXT ──────────────────────────────────────── */
+    .project-body {
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .project-body p {
+      margin-bottom: 22px;
+      font-weight: bold;
+    }
+
+    .project-body h3 {
+      color: var(--accent-orange);
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      margin: 36px 0 12px;
+      border-left: 4px solid var(--accent-green);
+      padding-left: 12px;
+    }
+
+    /* ── RESULTS TABLE ──────────────────────────────────── */
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .result-table th {
+      background-color: var(--bg-sidebar);
+      color: var(--accent-orange);
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid var(--accent-green);
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+    }
+
+    .result-table td {
+      padding: 12px 16px;
+      border: 1px solid var(--accent-green);
+      color: var(--text-main);
+    }
+
+    .result-table tr:nth-child(even) td {
+      background-color: var(--accent-beige);
+    }
+
+  </style>
+</head>
+<body>
+<div class="layout-grid">
+
+  <!-- ══ SIDEBAR ══════════════════════════════════════════ -->
+  <aside class="sidebar">
+    <div class="profile-section">
+      <img src="portfoliopfp1.png" alt="Profile" class="profile-img">
+      <h1>NYLE<br>RAHMAN-VYAS</h1>
+      <div class="badge">MECHANICAL ENG.</div>
+      <p class="role">RUTGERS UNIVERSITY</p>
+      <p class="role sub">MINOR: COMPUTER SCIENCE</p>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html#about" class="nav-item">> OVERVIEW</a>
+      <a href="index.html#projects" class="nav-item">> PROJECTS</a>
+      <a href="index.html#contact" class="nav-item">> CONTACT</a>
+      <br>
+      <a href="index.html" class="nav-item" style="color: var(--accent-orange);">
+        &lt; RETURN TO MAIN DIRECTORY
+      </a>
+    </nav>
+
+    <div class="footer-status">
+      <p>SYSTEM STATUS: <span style="color: var(--accent-orange)">ONLINE</span></p>
+      <p>LAST UPDATE: 2025</p>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN CONTENT ══════════════════════════════════════ -->
+  <main class="content-area">
+    <section class="content-block">
+
+      <!-- Title -->
+      <h2 class="section-header">Deep Learning in Mechanics: Neural Network FEA Surrogate</h2>
+
+      <!-- Meta bar -->
+      <div class="project-meta">
+        <div class="meta-item"><span>TYPE:</span> Final Project</div>
+        <div class="meta-item"><span>DATE:</span> 2025</div>
+        <div class="meta-item"><span>TOOLS:</span> scikit-fem · PyTorch · scipy · scikit-learn · numpy · matplotlib</div>
+        <div class="meta-item"><span>SKILLS:</span> Deep Learning · FEA · Soft Robotics · Data Generation</div>
+      </div>
+
+      <!-- ── HERO IMAGE (Poster) ── -->
+      <div class="img-full">
+        <div class="img-block">
+          <img src="deeplearning/Rahman-Vyas_Poster_DeepLearning.jpg" alt="Deep Learning in Mechanics project poster" style="width: 100%; height: auto; display: block;">
+          <span class="img-label">PROJECT POSTER — NEURAL NETWORK SURROGATE FOR FEA IN SOFT ROBOTICS</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+
+        <h3>WHY I BUILT THIS</h3>
+        <p>
+          I have always been drawn to surgical robotics, specifically the challenge of making robotic systems precise enough to operate safely around human tissue. When thinking about my deep learning final project, I kept coming back to a problem I had seen across my mechanics coursework: Finite Element Analysis is one of the most powerful tools we have for understanding material behavior under load, but it is slow by design. That trade-off felt like exactly the kind of problem machine learning should be able to solve. So I set out to build a neural network that could replace the physics solver entirely.
+        </p>
+
+        <h3>THE PROBLEM</h3>
+        <p>
+          Soft robotic actuators used in surgical systems need real-time deformation feedback to be controlled precisely. FEA can compute that feedback accurately but takes several milliseconds per solve, which is too slow for a live control loop running hundreds of times per second. The faster you need the answer, the less useful FEA becomes.
+        </p>
+
+        <div class="img-full">
+          <div class="img-block" style="min-height: 260px;">
+            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ INSERT IMAGE: soft robotic actuator reference ]</span>
+            <span class="img-label">SOFT ROBOTIC ACTUATOR — SURGICAL APPLICATION REFERENCE</span>
+          </div>
+        </div>
+
+        <h3>WHAT I BUILT</h3>
+        <p>
+          I generated 10,000 FEA simulations from scratch using scikit-fem, each applying a force with a different magnitude, direction, and position along the boundary of a 2D elastic mesh. Each simulation produced stress values at 231 mesh nodes. A Multi-Layer Perceptron was then trained in PyTorch to learn the mapping from those three force inputs to the full 231-node stress field output simultaneously.
+        </p>
+        <p>
+          The data generation pipeline was entirely my own work, which is what makes this meaningfully different from standard coursework. No dataset was provided or downloaded. Every training example came from a physics simulation I parameterized and ran myself.
+        </p>
+
+        <div class="img-full">
+          <div class="img-block">
+            <img src="deeplearning/Rahman-Vyas_Poster_DeepLearning.jpg" alt="Project poster showing model architecture and pipeline" style="width: 100%; height: auto; display: block;">
+            <span class="img-label">PROJECT POSTER — MODEL ARCHITECTURE, DATA PIPELINE, AND RESULTS OVERVIEW</span>
+          </div>
+        </div>
+
+        <h3>RESULTS</h3>
+        <p>
+          The model achieved a mean R² of 0.9863 across all 231 nodes on completely unseen test data, with every node individually scoring above 0.90. Visually the predicted stress fields closely match the FEA ground truth, with the stress concentration at the force application point captured correctly in both location and magnitude.
+        </p>
+        <p>
+          On speed, MLP inference runs at 0.464 ms versus 2.5 ms for a single FEA solve — a 5x speedup on this mesh. The more important point is that MLP speed stays constant as geometry grows while FEA time scales with mesh complexity, meaning the real advantage is much larger on realistic 3D geometries.
+        </p>
+
+        <div class="img-pair">
+          <div class="img-block" style="min-height: 260px;">
+            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ INSERT IMAGE: stress field comparison ]</span>
+            <span class="img-label">FIG. — PREDICTED vs. GROUND-TRUTH STRESS FIELD</span>
+          </div>
+          <div class="img-block" style="min-height: 260px;">
+            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ INSERT IMAGE: R² histogram ]</span>
+            <span class="img-label">FIG. — R² SCORE DISTRIBUTION ACROSS ALL 231 NODES</span>
+          </div>
+        </div>
+
+        <h3>WHAT SURPRISED ME</h3>
+        <p>
+          The result that stuck with me most was how visibly dataset size affected generalization. At 500 samples there was a clear gap between training and validation loss — a sign of overfitting. Scaling to 10,000 samples nearly closed that gap entirely. Watching that change directly in the loss curves made the concept click in a way that coursework alone had not.
+        </p>
+
+        <h3>REFERENCES</h3>
+        <p style="font-size: 0.9rem; line-height: 1.7;">
+          Liang et al. (2018) — A deep learning approach to estimate stress distribution: a fast and accurate surrogate of FEA. <em>Journal of the Royal Society Interface.</em>
+          <br><br>
+          De Barrie et al. (2021) — A deep learning method for vision based force prediction of a soft fin ray gripper using simulation data. <em>Frontiers in Robotics and AI.</em>
+        </p>
+
+      </div>
+    </section>
+    <div style="height: 100px;"></div>
+  </main>
+
+</div>
+</body>
+</html>

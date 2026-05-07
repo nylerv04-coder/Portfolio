@@ -333,9 +333,9 @@ body {
 
 /* Variant for use on dark backgrounds — compound selector beats .retro-btn */
 .retro-btn.retro-btn-light {
-    border: 2px solid var(--accent-orange);
-    color: var(--accent-orange);
-    box-shadow: 4px 4px 0px rgba(204,102,0,0.5);
+    border: 2px solid #0A66C2;
+    color: #0A66C2;
+    box-shadow: 4px 4px 0px rgba(10,102,194,0.5);
 }
 .retro-btn.retro-btn-light:hover {
     background-color: #5b9bd5;
