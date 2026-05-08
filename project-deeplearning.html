@@ -202,7 +202,7 @@
           The model achieved a mean R² of <span style="color: var(--accent-orange);">0.9863</span> across all 231 nodes on completely unseen test data, with every node individually scoring above <span style="color: var(--accent-orange);">0.90</span>. Visually the predicted stress fields closely match the FEA ground truth, with the stress concentration at the force application point captured correctly in both location and magnitude.
         </p>
         <p>
-          On speed, MLP inference runs at <span style="color: var(--accent-orange);">0.464 ms</span> versus <span style="color: var(--accent-orange);">2.5 ms</span> for a single FEA solve — a <span style="color: var(--accent-orange);">5x speedup</span> on this mesh. The more important point is that MLP speed stays constant as geometry grows while FEA time scales with mesh complexity, meaning the real advantage is much larger on realistic 3D geometries.
+          On speed, MLP inference runs at <span style="color: var(--accent-orange);">0.464 ms</span> versus <span style="color: var(--accent-orange);">2.5 ms</span> for a single FEA solve, a <span style="color: var(--accent-orange);">5x speedup</span> on this mesh. The more important point is that MLP speed stays constant as geometry grows while FEA time scales with mesh complexity, meaning the real advantage is much larger on realistic 3D geometries.
         </p>
 
         <div class="img-full">
@@ -228,7 +228,7 @@
 
         <h3>KEY TAKEAWAYS</h3>
         <p>
-          The result that stuck with me most was how visibly dataset size affected generalization. At 500 samples there was a clear gap between training and validation loss — a sign of overfitting. Scaling to 10,000 samples nearly closed that gap entirely. Watching that change directly in the loss curves made the concept click in a way that coursework alone had not.
+          The result that stuck with me most was how visibly dataset size affected generalization. At 500 samples there was a clear gap between training and validation loss, a sign of overfitting. Scaling to 10,000 samples nearly closed that gap entirely. Watching that change directly in the loss curves made the concept click in a way that coursework alone had not.
         </p>
 
         <h3>REFERENCES</h3>

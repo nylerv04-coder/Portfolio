@@ -200,15 +200,15 @@
 
         <h3>OBJECTIVE</h3>
         <p>
-          A hands-on run through the full engineering design loop — CAD modeling, FEA simulation, physical fabrication, and load testing. The goal: design two versions of an L-bracket, one structurally naive and one optimized, then prove the difference with a 3D printer and dead weights.
+          A hands-on run through the full engineering design loop: CAD modeling, FEA simulation, physical fabrication, and load testing. The goal: design two versions of an L-bracket, one structurally naive and one optimized, then prove the difference with a 3D printer and dead weights.
         </p>
         <p>
-          Both brackets are L-shaped wall mounts with identical outer dimensions. The one labeled "L-bracket" is the baseline design. The one labeled "Optimized L-Bracket" is the redesigned, optimized version — built to withstand significantly more force. It did.
+          Both brackets are L-shaped wall mounts with identical outer dimensions. The one labeled "L-bracket" is the baseline design. The one labeled "Optimized L-Bracket" is the redesigned, optimized version, built to withstand significantly more force. It did.
         </p>
 
         <h3>DESIGN APPROACH</h3>
         <p>
-          Both brackets were modeled in SolidWorks. The baseline featured a sharp 90° internal corner — a classic stress concentration site where the notch effect funnels tensile stress to a single point, dramatically lowering the load needed for crack initiation.
+          Both brackets were modeled in SolidWorks. The baseline featured a sharp 90° internal corner, a classic stress concentration site where the notch effect funnels tensile stress to a single point, dramatically lowering the load needed for crack initiation.
         </p>
         <p>
           The optimized version addressed this with two changes: a fillet radius at the inner corner to spread stress over a larger area, and a triangular gusset on the inner face to stiffen the joint and shorten the bending moment arm. Print orientation was also adjusted to align layer boundaries away from the primary tensile load path, exploiting PLA's anisotropic properties.
@@ -216,7 +216,7 @@
 
         <h3>CAD MODELS</h3>
         <p>
-          Both designs were fully modeled in SolidWorks before printing. The baseline L-bracket is a plain right-angle bracket with a sharp 90° inner corner and no reinforcement. The optimized L-bracket adds a triangular gusset at the inner face and a fillet radius at the bend — same outer footprint, fundamentally different structural geometry.
+          Both designs were fully modeled in SolidWorks before printing. The baseline L-bracket is a plain right-angle bracket with a sharp 90° inner corner and no reinforcement. The optimized L-bracket adds a triangular gusset at the inner face and a fillet radius at the bend, with the same outer footprint but fundamentally different structural geometry.
         </p>
 
         <div class="img-pair">
@@ -232,7 +232,7 @@
 
         <h3>ENGINEERING DRAWINGS</h3>
         <p>
-          Formal engineering drawings were produced for both brackets per standard drafting conventions. Both share identical outer dimensions — 1.75" mounting face width, 3.50" vertical height, 2.30" shelf depth, 0.25" wall thickness. The only structural differences between the two are the presence of the gusset and fillet in the optimized L-bracket. Same footprint, fundamentally different load behavior.
+          Formal engineering drawings were produced for both brackets per standard drafting conventions. Both share identical outer dimensions: 1.75" mounting face width, 3.50" vertical height, 2.30" shelf depth, 0.25" wall thickness. The only structural differences between the two are the presence of the gusset and fillet in the optimized L-bracket. Same footprint, fundamentally different load behavior.
         </p>
 
         <div class="img-pair">
@@ -264,7 +264,7 @@
 
         <h3>PHYSICAL TESTING</h3>
         <p>
-          Both brackets were printed in PLA, mounted to a rigid cardboard surface, and loaded incrementally with a standard weight plate hung from the shelf. The experiment was straightforward: keep adding load until something breaks — or doesn't. Results matched simulation predictions cleanly.
+          Both brackets were printed in PLA, mounted to a rigid cardboard surface, and loaded incrementally with a standard weight plate hung from the shelf. The experiment was straightforward: keep adding load until something breaks, or doesn't. Results matched simulation predictions cleanly.
         </p>
 
         <table class="result-table">
@@ -291,7 +291,7 @@
         <div class="verdict">
           <div class="verdict-box fail">
             <span class="verdict-label">[ BASELINE L-BRACKET — FAILED ]</span>
-            Fractured cleanly at the inner corner under 10 kg. Sudden failure with no visible prior deformation — consistent with stress concentration-driven brittle fracture in FDM PLA.
+            Fractured cleanly at the inner corner under 10 kg. Sudden failure with no visible prior deformation, consistent with stress concentration-driven brittle fracture in FDM PLA.
           </div>
           <div class="verdict-box pass">
             <span class="verdict-label">[ OPTIMIZED L-BRACKET — SURVIVED ]</span>
@@ -301,7 +301,7 @@
 
         <h3>END OF EXPERIMENT</h3>
         <p>
-          The L-bracket's horizontal shelf fractured cleanly at the inner corner — exactly where FEA predicted peak stress. The optimized L-bracket, tested under the same conditions, showed zero fracture or visible deformation. The side-by-side result made the structural advantage unmistakable.
+          The L-bracket's horizontal shelf fractured cleanly at the inner corner, exactly where FEA predicted peak stress. The optimized L-bracket, tested under the same conditions, showed zero fracture or visible deformation. The side-by-side result made the structural advantage unmistakable.
         </p>
 
         <div class="img-pair">
@@ -317,7 +317,7 @@
 
         <h3>TAKEAWAYS</h3>
         <p>
-          A small geometry change — adding a fillet and gusset — more than doubled effective load capacity. This project reinforced the value of closing the simulation-to-hardware loop and highlighted print orientation as a real design variable in FDM parts, not an afterthought.
+          Adding a fillet and gusset more than doubled effective load capacity. This project reinforced the value of closing the simulation-to-hardware loop and highlighted print orientation as a real design variable in FDM parts, not an afterthought.
         </p>
 
       </div>

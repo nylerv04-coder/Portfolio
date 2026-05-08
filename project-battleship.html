@@ -140,7 +140,7 @@
 
                     <h3>PROJECT OBJECTIVE</h3>
                     <p>
-                        Built an AI agent to play Battleship with three goals: reduce the average number of moves to win by at least 50% compared to random guessing, exploit human ship placement tendencies using reinforcement learning, and achieve a win rate above 30% in live play against humans. The bot needed to be genuinely intelligent — not just faster at random search, but capable of reasoning, adapting, and learning.
+                        Built an AI agent to play Battleship with three goals: reduce the average number of moves to win by at least 50% compared to random guessing, exploit human ship placement tendencies using reinforcement learning, and achieve a win rate above 30% in live play against humans. The bot needed to be genuinely intelligent, not just faster at random search, but capable of reasoning, adapting, and learning.
                     </p>
 
                     <h3>HOW IT WORKS</h3>
@@ -148,13 +148,13 @@
                         The agent operates through three integrated systems: a probability-based heuristic for targeting, a pair of search algorithms for hunting and destroying ships, and a constraint satisfaction layer to prevent wasted shots.
                     </p>
                     <p>
-                        The heuristic builds a dynamic heatmap by simulating every possible remaining ship placement on the board. The AI targets the coordinate with the highest overlap frequency — the cell most likely to contain a ship given what has already been revealed. This map updates after every shot.
+                        The heuristic builds a dynamic heatmap by simulating every possible remaining ship placement on the board. The AI targets the coordinate with the highest overlap frequency, the cell most likely to contain a ship given what has already been revealed. This map updates after every shot.
                     </p>
                     <p>
                         Search runs in two modes depending on state. In Mode 1 (no ship found), the agent uses Greedy Best-First Search to immediately pick the highest-probability cell from the heatmap. In Mode 2 (after a hit), it switches to Depth-First Search — pushing neighboring cells onto a stack and drilling down until the ship is fully destroyed. An axis-locking constraint activates once two hits align horizontally or vertically, forcing the AI to ignore perpendicular neighbors and eliminate wasted shots.
                     </p>
                     <p>
-                        On top of this, a reinforcement learning module stores a persistent JSON memory of opponent ship locations across games. Over time, the bot detects human placement patterns — such as a tendency to hide ships in corners or along edges — and biases its probability map accordingly before the game even begins.
+                        On top of this, a reinforcement learning module stores a persistent JSON memory of opponent ship locations across games. Over time, the bot detects human placement patterns, such as a tendency to hide ships in corners or along edges, and biases its probability map accordingly before the game even begins.
                     </p>
 
                     <h3>RESULTS</h3>
@@ -170,7 +170,7 @@
                             <td>Search Efficiency</td>
                             <td>&lt; 50 moves avg (50% improvement)</td>
                             <td><span style="color: var(--accent-orange);">40.01 moves</span> vs. 95.41 (random)</td>
-                            <td><span style="color: var(--accent-orange);">58.1% improvement</span> — goal exceeded</td>
+                            <td><span style="color: var(--accent-orange);">58.1% improvement</span>, goal exceeded</td>
                         </tr>
                         <tr>
                             <td>Reinforcement Learning</td>
@@ -182,16 +182,16 @@
                             <td>Human vs. AI Win Rate</td>
                             <td>&gt; 30% win rate</td>
                             <td><span style="color: var(--accent-orange);">6 wins out of 10</span> live matches</td>
-                            <td><span style="color: var(--accent-orange);">60% win rate</span> — doubled the target</td>
+                            <td><span style="color: var(--accent-orange);">60% win rate</span>, doubled the target</td>
                         </tr>
                     </table>
 
                     <h3>KEY TAKEAWAYS</h3>
                     <p>
-                        Debugging AI behavior is fundamentally different from debugging code. Most problems came from wrong assumptions baked into the heuristic logic — not syntax errors or missing functions. The model prioritizes plausibility over correctness, which means failures are subtle and only visible through behavioral testing across thousands of simulated games.
+                        Debugging AI behavior is fundamentally different from debugging code. Most problems came from wrong assumptions baked into the heuristic logic, not syntax errors or missing functions. The model prioritizes plausibility over correctness, which means failures are subtle and only visible through behavioral testing across thousands of simulated games.
                     </p>
                     <p>
-                        The heuristic, search strategy, and constraint system also need to be designed together from the start. Adding them incrementally introduced coupling issues that compounded quickly — changes to the probability map affected search behavior in ways that weren't obvious until late in testing.
+                        The heuristic, search strategy, and constraint system also need to be designed together from the start. Adding them incrementally introduced coupling issues that compounded quickly. Changes to the probability map affected search behavior in ways that weren't obvious until late in testing.
                     </p>
 
                     <h3>DEMO</h3>
