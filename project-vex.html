@@ -74,6 +74,34 @@
         .img-full {
             margin: 28px 0;
         }
+        .status-block {
+            border: var(--border-thick);
+            border-top: 5px solid var(--accent-orange);
+            background-color: var(--bg-sidebar);
+            padding: 40px;
+            text-align: center;
+            margin: 28px 0;
+        }
+        .status-label {
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        .status-title {
+            color: var(--accent-beige);
+            font-family: 'Archivo Narrow', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+        .status-sub {
+            color: var(--accent-beige);
+            font-size: 0.85rem;
+            opacity: 0.5;
+            letter-spacing: 0.08em;
+        }
     </style>
 </head>
 <body>
@@ -113,8 +141,8 @@
                 </div>
 
                 <div class="img-full">
-                    <div class="img-block">
-                        <img src="vex/ProjectATexpo.jpg" alt="VEX competition robot at expo" style="width:100%; height:auto; display:block;">
+                    <div class="img-block" style="height: 400px;">
+                        <img src="vex/ProjectATexpo.jpg" alt="VEX competition robot at expo" style="width:100%; height:100%; object-fit:cover; object-position:center 63%; display:block;">
                         <span class="img-label">FIG. 1 — COMPETITION ROBOT AT EXPO</span>
                     </div>
                 </div>
@@ -131,39 +159,6 @@
                         Multiple intake and scoring concepts were evaluated using a Value Opportunity Analysis weighing reliability, speed, cost, and maneuverability. A chain-driven three-sprocket roller intake with rubber band compliant rollers was selected for its ability to handle the irregular octoball shape reliably. A pneumatically actuated intake bar assists with initial pickup. Objects are guided into a storage column and either released for low-goal scoring or transferred to an outtake mechanism for medium and high goals — eliminating the need to reposition the robot between scoring heights.
                     </p>
 
-                    <div class="img-pair">
-                        <div class="img-block">
-                            <img src="vex/VEXrobot Progress 2.jpeg" alt="VEX robot build in progress" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-                            <span class="img-label">FIG. 2 — ROBOT BUILD IN PROGRESS</span>
-                        </div>
-                        <div class="img-block">
-                            <img src="vex/TopGoalVex.jpg" alt="Top goal scoring mechanism" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-                            <span class="img-label">FIG. 3 — TOP GOAL SCORING MECHANISM</span>
-                        </div>
-                    </div>
-
-                    <div class="img-pair">
-                        <div class="img-block">
-                            <img src="vex/ScoringSystemCloseUp.jpg" alt="Scoring system close-up" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-                            <span class="img-label">FIG. 4 — ROLLER INTAKE CLOSE-UP</span>
-                        </div>
-                        <div class="img-block">
-                            <img src="vex/ScoringSystemCloseUp1.jpg" alt="Scoring system alternate angle" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-                            <span class="img-label">FIG. 5 — INTAKE MECHANISM, ALTERNATE ANGLE</span>
-                        </div>
-                    </div>
-
-                    <div class="img-pair">
-                        <div class="img-block">
-                            <img src="vex/OuttakeGuide.jpg" alt="Outtake guide assembly" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-                            <span class="img-label">FIG. 6 — OUTTAKE GUIDE ASSEMBLY</span>
-                        </div>
-                        <div class="img-block">
-                            <img src="vex/PnumaticTank.jpg" alt="Pneumatic tank assembly" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-                            <span class="img-label">FIG. 7 — PNEUMATIC TANK ASSEMBLY</span>
-                        </div>
-                    </div>
-
                     <h3>SWERVE DRIVETRAIN</h3>
                     <p>
                         The drivetrain uses four independent differential swerve modules, each providing full translational, rotational, and lateral movement by independently controlling the torque and steering of each wheel. This omnidirectional capability enables the fast directional changes and precise path following required in competition. Traditional tank and H-drive configurations were evaluated against criteria including mass, manufacturability, cost, and reliability before selecting the differential swerve approach.
@@ -171,17 +166,6 @@
                     <p>
                         Each module uses a dual-purpose gear system where two VEX V5 Smart Motors with 6:1 gear cartridges cooperatively control both wheel orientation (steering) and wheel speed (driving). A 24-tooth driving bevel gear meshes with a 48-tooth bevel gear on a 2.75-inch wheel, which is surrounded by rollers for low-friction pivoting. Modules are primarily constructed from PETG and PETG-Carbon Fiber and are fully modular — each can be assembled, serviced, or replaced without affecting the rest of the drivetrain. Theoretical maximum speed is approximately 81.05 inches per second, and the full assembly fits within the required 15 cubic inch envelope.
                     </p>
-
-                    <div class="img-pair">
-                        <div class="img-block" style="min-height: 260px;">
-                            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ CAD — SWERVE MODULE ASSEMBLY ]</span>
-                            <span class="img-label">FIG. 8 — SWERVE MODULE ASSEMBLY CAD</span>
-                        </div>
-                        <div class="img-block" style="min-height: 260px;">
-                            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ CAD — FULL ROBOT ASSEMBLY ]</span>
-                            <span class="img-label">FIG. 9 — FULL ROBOT ASSEMBLY CAD</span>
-                        </div>
-                    </div>
 
                     <h3>SIMULATION & ANALYSIS</h3>
                     <p>
@@ -194,15 +178,43 @@
                     </p>
 
                     <h3>DEMO</h3>
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: var(--border-thick); margin-bottom: 20px;">
-                        <iframe
-                            src="https://www.youtube.com/embed/Ws90QXpy9Ds"
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            frameborder="0"
-                            loading="lazy"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
+                    <div class="status-block">
+                        <p class="status-label">VIDEO</p>
+                        <p class="status-title">COMING SOON</p>
+                        <p class="status-sub">DEMO FOOTAGE WILL BE ADDED HERE</p>
+                    </div>
+
+                    <h3>SCORING SYSTEM CAD</h3>
+
+                    <div class="img-pair">
+                        <div class="img-block">
+                            <img src="vex/OldDesignCAD.png" alt="Initial scoring system CAD design" loading="lazy" style="width:100%; height:auto; display:block;">
+                            <span class="img-label">FIG. 2 — INITIAL SCORING SYSTEM DESIGN — Early CAD model of the intake and outtake mechanism before refinement.</span>
+                        </div>
+                        <div class="img-block">
+                            <img src="vex/NewDesignCAD.png" alt="Final scoring system CAD design" loading="lazy" style="width:100%; height:auto; display:block;">
+                            <span class="img-label">FIG. 3 — FINAL SCORING SYSTEM DESIGN — Refined CAD model incorporating structural improvements and multi-height outtake routing.</span>
+                        </div>
+                    </div>
+
+                    <h3>SWERVE DRIVE CAD</h3>
+
+                    <div class="img-full">
+                        <div class="img-block">
+                            <img src="vex/SwerveDrive_Module_assembly.png" alt="Swerve drive module assembly CAD" loading="lazy" style="width:100%; height:auto; display:block;">
+                            <span class="img-label">FIG. 4 — SWERVE MODULE ASSEMBLY — Full CAD assembly of a single differential swerve module, showing the dual-motor gear system, bevel drive, and roller wheel.</span>
+                        </div>
+                    </div>
+
+                    <div class="img-pair">
+                        <div class="img-block">
+                            <img src="vex/SwerveDriveCAD_Side.png" alt="Swerve drive module side view CAD" loading="lazy" style="width:100%; height:auto; display:block;">
+                            <span class="img-label">FIG. 5 — SWERVE MODULE, SIDE VIEW — Side profile showing the bevel gear mesh and wheel contact geometry.</span>
+                        </div>
+                        <div class="img-block">
+                            <img src="vex/SWerveFullCAD.png" alt="Full swerve drivetrain CAD assembly" loading="lazy" style="width:100%; height:auto; display:block;">
+                            <span class="img-label">FIG. 6 — FULL SWERVE DRIVETRAIN ASSEMBLY — All four modules integrated into the drivetrain frame, fitting within the 15 cubic inch competition envelope.</span>
+                        </div>
                     </div>
 
                 </div>
