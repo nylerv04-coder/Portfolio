@@ -8,44 +8,78 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Extra styles just for the project detail pages */
-        .project-detail-header {
-            margin-bottom: 30px;
-        }
         .project-meta {
             background-color: var(--accent-beige);
             border: 2px solid var(--accent-green);
-            padding: 15px;
-            margin-bottom: 30px;
+            padding: 15px 20px;
+            margin-bottom: 28px;
             display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            font-weight: bold;
         }
         .meta-item span {
             color: var(--accent-orange);
-            font-weight: bold;
         }
         .project-body p {
             line-height: 1.8;
             margin-bottom: 20px;
+            font-weight: bold;
         }
-        .main-project-image {
-            width: 100%;
-            height: 350px;
+        .project-body h3 {
+            color: var(--accent-orange);
+            font-family: 'Archivo Narrow', sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.12em;
+            margin: 36px 0 12px;
+            border-left: 4px solid var(--accent-green);
+            padding-left: 12px;
+        }
+        .img-block {
             background-color: var(--bg-sidebar);
             border: var(--border-thick);
-            margin-bottom: 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: var(--accent-orange);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+        }
+        .img-block img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .img-label {
+            color: var(--accent-beige);
+            font-size: 0.78rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            padding: 8px 12px;
+            flex-shrink: 0;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--bg-sidebar);
+        }
+        .img-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+        .img-full {
+            margin: 28px 0;
         }
     </style>
 </head>
 <body>
 
     <div class="layout-grid">
-        
+
         <aside class="sidebar">
             <div class="profile-section">
                 <div class="profile-img-wrapper">
@@ -67,49 +101,99 @@
         </aside>
 
         <main class="content-area">
-            
-            <section class="content-block">
-                <div class="project-detail-header">
-                    <h2 class="section-header"> CASE FILE: VEX ROBOTICS</h2>
-                </div>
 
-                <img src="vex/ProjectATexpo.jpg" alt="VEX robot at competition expo" style="width:100%; height:380px; object-fit:cover; border:var(--border-thick); margin-bottom:30px; display:block;">
+            <section class="content-block">
+                <h2 class="section-header">CASE FILE: VEX ROBOTICS</h2>
+
+                <div class="img-full">
+                    <div class="img-block">
+                        <img src="vex/ProjectATexpo.jpg" alt="VEX competition robot at expo" style="width:100%; height:auto; display:block;">
+                        <span class="img-label">FIG. 1 — COMPETITION ROBOT AT EXPO</span>
+                    </div>
+                </div>
 
                 <div class="project-meta">
                     <div class="meta-item"><span>TYPE:</span> Senior Design</div>
                     <div class="meta-item"><span>ROLE:</span> Project Lead</div>
-                    <div class="meta-item"><span>TOOLS:</span> Ansys Explicit Dynamics, SolidWorks</div>
+                    <div class="meta-item"><span>TOOLS:</span> SolidWorks · Ansys Explicit Dynamics</div>
+                    <div class="meta-item"><span>SKILLS:</span> Mechanical Design · Robotics · Drivetrain Engineering</div>
                 </div>
 
                 <div class="project-body">
-                    <h3>Project Objective</h3>
-                    <p>Designed and analyzed a high-speed projectile mechanism for the VEX Robotics "Pushback" competition. The primary engineering challenge required determining the maximum entry velocity of a VEX Octoball into a designated tube without it bouncing out.</p>
 
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0;">
-                        <img src="vex/VEXrobot Progress 2.jpeg" alt="VEX robot in progress" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; border:var(--border-thick); display:block;">
-                        <img src="vex/TopGoalVex.jpg" alt="VEX top goal mechanism" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; border:var(--border-thick); display:block;">
+                    <h3>PROJECT OBJECTIVE</h3>
+                    <p>
+                        The VEX Pushback competition challenges teams to design robots capable of collecting and scoring irregular octagonal objects — called octoballs — at three different height levels. Our solution addressed this with two integrated systems: a multi-height roller intake and scoring mechanism, and a custom omnidirectional differential swerve drivetrain built for precise, agile maneuvering on the competition field.
+                    </p>
+
+                    <h3>SCORING SYSTEM</h3>
+                    <p>
+                        Multiple intake and scoring concepts were evaluated using a Value Opportunity Analysis weighing reliability, speed, cost, and maneuverability. A chain-driven three-sprocket roller intake with rubber band compliant rollers was selected for its ability to handle the irregular octoball shape reliably. A pneumatically actuated intake bar assists with initial pickup. Objects are guided into a storage column and either released for low-goal scoring or transferred to an outtake mechanism for medium and high goals — eliminating the need to reposition the robot between scoring heights.
+                    </p>
+
+                    <div class="img-pair">
+                        <div class="img-block">
+                            <img src="vex/VEXrobot Progress 2.jpeg" alt="VEX robot build in progress" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+                            <span class="img-label">FIG. 2 — ROBOT BUILD IN PROGRESS</span>
+                        </div>
+                        <div class="img-block">
+                            <img src="vex/TopGoalVex.jpg" alt="Top goal scoring mechanism" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+                            <span class="img-label">FIG. 3 — TOP GOAL SCORING MECHANISM</span>
+                        </div>
                     </div>
 
-                    <h3>Scoring Mechanism</h3>
-                    <p>The scoring system required precise intake geometry and outtake sequencing to reliably deliver balls into the elevated goal at high speed. The mechanism was iterated through multiple physical builds alongside simulation refinement.</p>
-
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0;">
-                        <img src="vex/ScoringSystemCloseUp.jpg" alt="Scoring system close-up" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; border:var(--border-thick); display:block;">
-                        <img src="vex/ScoringSystemCloseUp1.jpg" alt="Scoring system close-up alternate angle" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; border:var(--border-thick); display:block;">
+                    <div class="img-pair">
+                        <div class="img-block">
+                            <img src="vex/ScoringSystemCloseUp.jpg" alt="Scoring system close-up" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+                            <span class="img-label">FIG. 4 — ROLLER INTAKE CLOSE-UP</span>
+                        </div>
+                        <div class="img-block">
+                            <img src="vex/ScoringSystemCloseUp1.jpg" alt="Scoring system alternate angle" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+                            <span class="img-label">FIG. 5 — INTAKE MECHANISM, ALTERNATE ANGLE</span>
+                        </div>
                     </div>
 
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0;">
-                        <img src="vex/OuttakeGuide.jpg" alt="Outtake guide assembly" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; border:var(--border-thick); display:block;">
-                        <img src="vex/PnumaticTank.jpg" alt="Pneumatic tank assembly" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; border:var(--border-thick); display:block;">
+                    <div class="img-pair">
+                        <div class="img-block">
+                            <img src="vex/OuttakeGuide.jpg" alt="Outtake guide assembly" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+                            <span class="img-label">FIG. 6 — OUTTAKE GUIDE ASSEMBLY</span>
+                        </div>
+                        <div class="img-block">
+                            <img src="vex/PnumaticTank.jpg" alt="Pneumatic tank assembly" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+                            <span class="img-label">FIG. 7 — PNEUMATIC TANK ASSEMBLY</span>
+                        </div>
                     </div>
 
-                    <h3>Simulation & Analysis</h3>
-                    <p>To optimize the scoring mechanism, I utilized Ansys Explicit Dynamics to simulate the impact physics. This involved modeling the material properties of the Octoball and the rigid tube structure to accurately predict the coefficient of restitution and energy dissipation upon entry.</p>
+                    <h3>SWERVE DRIVETRAIN</h3>
+                    <p>
+                        The drivetrain uses four independent differential swerve modules, each providing full translational, rotational, and lateral movement by independently controlling the torque and steering of each wheel. This omnidirectional capability enables the fast directional changes and precise path following required in competition. Traditional tank and H-drive configurations were evaluated against criteria including mass, manufacturability, cost, and reliability before selecting the differential swerve approach.
+                    </p>
+                    <p>
+                        Each module uses a dual-purpose gear system where two VEX V5 Smart Motors with 6:1 gear cartridges cooperatively control both wheel orientation (steering) and wheel speed (driving). A 24-tooth driving bevel gear meshes with a 48-tooth bevel gear on a 2.75-inch wheel, which is surrounded by rollers for low-friction pivoting. Modules are primarily constructed from PETG and PETG-Carbon Fiber and are fully modular — each can be assembled, serviced, or replaced without affecting the rest of the drivetrain. Theoretical maximum speed is approximately 81.05 inches per second, and the full assembly fits within the required 15 cubic inch envelope.
+                    </p>
 
-                    <h3>Results</h3>
-                    <p>The simulation data established a precise threshold for our launcher's motor speeds, ensuring maximum rapid-fire capability while maintaining a 100% retention rate in the target zone.</p>
+                    <div class="img-pair">
+                        <div class="img-block" style="min-height: 260px;">
+                            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ CAD — SWERVE MODULE ASSEMBLY ]</span>
+                            <span class="img-label">FIG. 8 — SWERVE MODULE ASSEMBLY CAD</span>
+                        </div>
+                        <div class="img-block" style="min-height: 260px;">
+                            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ CAD — FULL ROBOT ASSEMBLY ]</span>
+                            <span class="img-label">FIG. 9 — FULL ROBOT ASSEMBLY CAD</span>
+                        </div>
+                    </div>
 
-                    <h3>Demo</h3>
+                    <h3>SIMULATION & ANALYSIS</h3>
+                    <p>
+                        Ansys Explicit Dynamics was used to simulate the impact physics of the octoball entering the scoring tube at varying velocities, modeling material properties and the coefficient of restitution to determine the maximum safe intake speed. Torque-speed analysis of the VEX V5 motors confirmed the selected gear ratios meet target performance goals for both the intake and drivetrain systems.
+                    </p>
+
+                    <h3>RESULTS</h3>
+                    <p>
+                        Prototype testing validated successful intake, controlled transport, and multi-height scoring. The compliant roller system handles the irregular octoball shape reliably and the pneumatic intake bar improves pickup consistency. Structural modifications reduced deflection and improved rigidity while keeping the design compact. Preliminary swerve module testing confirmed proper gear mesh and smooth motor-driven rotation under load. Simulation data established safe intake velocity thresholds, ensuring maximum rapid-fire capability with a high retention rate at each goal height.
+                    </p>
+
+                    <h3>DEMO</h3>
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: var(--border-thick); margin-bottom: 20px;">
                         <iframe
                             src="https://www.youtube.com/embed/Ws90QXpy9Ds"
@@ -120,8 +204,8 @@
                             allowfullscreen>
                         </iframe>
                     </div>
-                </div>
 
+                </div>
             </section>
 
             <div style="margin-bottom: 40px;">

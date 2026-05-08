@@ -199,20 +199,20 @@
 
         <h3>RESULTS</h3>
         <p>
-          The model achieved a mean R² of 0.9863 across all 231 nodes on completely unseen test data, with every node individually scoring above 0.90. Visually the predicted stress fields closely match the FEA ground truth, with the stress concentration at the force application point captured correctly in both location and magnitude.
+          The model achieved a mean R² of <span style="color: var(--accent-orange);">0.9863</span> across all 231 nodes on completely unseen test data, with every node individually scoring above <span style="color: var(--accent-orange);">0.90</span>. Visually the predicted stress fields closely match the FEA ground truth, with the stress concentration at the force application point captured correctly in both location and magnitude.
         </p>
         <p>
-          On speed, MLP inference runs at 0.464 ms versus 2.5 ms for a single FEA solve — a 5x speedup on this mesh. The more important point is that MLP speed stays constant as geometry grows while FEA time scales with mesh complexity, meaning the real advantage is much larger on realistic 3D geometries.
+          On speed, MLP inference runs at <span style="color: var(--accent-orange);">0.464 ms</span> versus <span style="color: var(--accent-orange);">2.5 ms</span> for a single FEA solve — a <span style="color: var(--accent-orange);">5x speedup</span> on this mesh. The more important point is that MLP speed stays constant as geometry grows while FEA time scales with mesh complexity, meaning the real advantage is much larger on realistic 3D geometries.
         </p>
 
         <div class="img-pair">
-          <div class="img-block" style="min-height: 260px;">
-            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ INSERT IMAGE: stress field comparison ]</span>
-            <span class="img-label">FIG. — PREDICTED vs. GROUND-TRUTH STRESS FIELD</span>
+          <div class="img-block">
+            <img src="deeplearning/BigComparison3.png" alt="Predicted vs ground-truth stress field comparison" style="width: 100%; height: auto; display: block;">
+            <span class="img-label">FIG. — PREDICTED vs. GROUND-TRUTH STRESS FIELD — The model replicates the FEA stress distribution across the mesh, including the concentration at the force application point.</span>
           </div>
-          <div class="img-block" style="min-height: 260px;">
-            <span style="color: var(--accent-orange); font-size: 0.85rem; padding: 20px;">[ INSERT IMAGE: R² histogram ]</span>
-            <span class="img-label">FIG. — R² SCORE DISTRIBUTION ACROSS ALL 231 NODES</span>
+          <div class="img-block">
+            <img src="deeplearning/RSquared.png" alt="R² score distribution across all 231 nodes" style="width: 100%; height: auto; display: block;">
+            <span class="img-label">FIG. — R² SCORE DISTRIBUTION ACROSS ALL 231 NODES — Every node scores above 0.90, with a mean R² of 0.9863 on completely unseen test data.</span>
           </div>
         </div>
 
@@ -220,6 +220,13 @@
         <p>
           The result that stuck with me most was how visibly dataset size affected generalization. At 500 samples there was a clear gap between training and validation loss — a sign of overfitting. Scaling to 10,000 samples nearly closed that gap entirely. Watching that change directly in the loss curves made the concept click in a way that coursework alone had not.
         </p>
+
+        <div class="img-full">
+          <div class="img-block">
+            <img src="deeplearning/TrainingLoss.png" alt="Training vs validation loss across dataset sizes" style="width: 100%; height: auto; display: block;">
+            <span class="img-label">FIG. — TRAINING vs. VALIDATION LOSS — The gap between training and validation loss shrinks significantly as dataset size scales from 500 to 10,000 samples, showing the direct effect of data volume on generalization.</span>
+          </div>
+        </div>
 
         <h3>REFERENCES</h3>
         <p style="font-size: 0.9rem; line-height: 1.7;">
