@@ -3,49 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYLE RAHMAN-VYAS | VEX ROBOTICS</title>
+    <title>NYLE RAHMAN-VYAS | BATTLESHIP AI AGENT</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Extra styles just for the project detail pages */
-        .project-detail-header {
-            margin-bottom: 30px;
-        }
         .project-meta {
             background-color: var(--accent-beige);
             border: 2px solid var(--accent-green);
-            padding: 15px;
-            margin-bottom: 30px;
+            padding: 15px 20px;
+            margin-bottom: 28px;
             display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            font-weight: bold;
         }
         .meta-item span {
             color: var(--accent-orange);
-            font-weight: bold;
         }
         .project-body p {
             line-height: 1.8;
             margin-bottom: 20px;
+            font-weight: bold;
         }
-        .main-project-image {
-            width: 100%;
-            height: 350px;
+        .project-body h3 {
+            color: var(--accent-orange);
+            font-family: 'Archivo Narrow', sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.12em;
+            margin: 36px 0 12px;
+            border-left: 4px solid var(--accent-green);
+            padding-left: 12px;
+        }
+        .img-block {
             background-color: var(--bg-sidebar);
             border: var(--border-thick);
-            margin-bottom: 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: var(--accent-orange);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+        }
+        .img-block img {
+            width: 100%;
+            display: block;
+        }
+        .img-label {
+            color: var(--accent-beige);
+            font-size: 0.78rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            padding: 8px 12px;
+            flex-shrink: 0;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--bg-sidebar);
+        }
+        .img-full {
+            margin: 28px 0;
+        }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .result-table th {
+            background-color: var(--bg-sidebar);
+            color: var(--accent-orange);
+            padding: 12px 16px;
+            text-align: left;
+            border: 1px solid var(--accent-green);
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
+        }
+        .result-table td {
+            padding: 12px 16px;
+            border: 1px solid var(--accent-green);
+            color: var(--text-main);
+        }
+        .result-table tr:nth-child(even) td {
+            background-color: var(--accent-beige);
         }
     </style>
 </head>
 <body>
 
     <div class="layout-grid">
-        
+
         <aside class="sidebar">
             <div class="profile-section">
                 <div class="profile-img-wrapper">
@@ -67,33 +118,95 @@
         </aside>
 
         <main class="content-area">
-            
-            <section class="content-block">
-                <div class="project-detail-header">
-                    <h2 class="section-header">CASE FILE: VEX ROBOTICS</h2>
-                </div>
 
-                <div class="main-project-image">
-                    [INSERT_CAD_RENDER_OR_PHOTO_HERE]
+            <section class="content-block">
+                <h2 class="section-header">CASE FILE: BATTLESHIP AI AGENT</h2>
+
+                <div class="img-full">
+                    <div class="img-block">
+                        <img src="battleship/BattleshipThumbnail.jpeg" alt="Battleship AI game interface" style="width:100%; height:auto; display:block; background:#1E2130;">
+                        <span class="img-label">FIG. 1 — BATTLESHIP AI AGENT — PYGAME INTERFACE</span>
+                    </div>
                 </div>
 
                 <div class="project-meta">
-                    <div class="meta-item"><span>TYPE:</span> Senior Design</div>
+                    <div class="meta-item"><span>TYPE:</span> Coursework — Intro to AI</div>
                     <div class="meta-item"><span>ROLE:</span> Project Lead</div>
-                    <div class="meta-item"><span>TOOLS:</span> Ansys Explicit Dynamics, SolidWorks</div>
+                    <div class="meta-item"><span>TOOLS:</span> Python · pygame · JSON</div>
+                    <div class="meta-item"><span>SKILLS:</span> Search Algorithms · Heuristics · Reinforcement Learning · Constraint Satisfaction</div>
                 </div>
 
                 <div class="project-body">
-                    <h3>Project Objective</h3>
-                    <p>Designed and analyzed a high-speed projectile mechanism for the VEX Robotics "Pushback" competition. The primary engineering challenge required determining the maximum entry velocity of a VEX Octoball into a designated tube without it bouncing out.</p>
 
-                    <h3>Simulation & Analysis</h3>
-                    <p>To optimize the scoring mechanism, I utilized Ansys Explicit Dynamics to simulate the impact physics. This involved modeling the material properties of the Octoball and the rigid tube structure to accurately predict the coefficient of restitution and energy dissipation upon entry.</p>
+                    <h3>PROJECT OBJECTIVE</h3>
+                    <p>
+                        Built an AI agent to play Battleship with three goals: reduce the average number of moves to win by at least 50% compared to random guessing, exploit human ship placement tendencies using reinforcement learning, and achieve a win rate above 30% in live play against humans. The bot needed to be genuinely intelligent — not just faster at random search, but capable of reasoning, adapting, and learning.
+                    </p>
 
-                    <h3>Results</h3>
-                    <p>The simulation data established a precise threshold for our launcher's motor speeds, ensuring maximum rapid-fire capability while maintaining a 100% retention rate in the target zone.</p>
+                    <h3>HOW IT WORKS</h3>
+                    <p>
+                        The agent operates through three integrated systems: a probability-based heuristic for targeting, a pair of search algorithms for hunting and destroying ships, and a constraint satisfaction layer to prevent wasted shots.
+                    </p>
+                    <p>
+                        The heuristic builds a dynamic heatmap by simulating every possible remaining ship placement on the board. The AI targets the coordinate with the highest overlap frequency — the cell most likely to contain a ship given what has already been revealed. This map updates after every shot.
+                    </p>
+                    <p>
+                        Search runs in two modes depending on state. In Mode 1 (no ship found), the agent uses Greedy Best-First Search to immediately pick the highest-probability cell from the heatmap. In Mode 2 (after a hit), it switches to Depth-First Search — pushing neighboring cells onto a stack and drilling down until the ship is fully destroyed. An axis-locking constraint activates once two hits align horizontally or vertically, forcing the AI to ignore perpendicular neighbors and eliminate wasted shots.
+                    </p>
+                    <p>
+                        On top of this, a reinforcement learning module stores a persistent JSON memory of opponent ship locations across games. Over time, the bot detects human placement patterns — such as a tendency to hide ships in corners or along edges — and biases its probability map accordingly before the game even begins.
+                    </p>
+
+                    <h3>RESULTS</h3>
+
+                    <table class="result-table">
+                        <tr>
+                            <th>GOAL</th>
+                            <th>TARGET</th>
+                            <th>RESULT</th>
+                            <th>VERDICT</th>
+                        </tr>
+                        <tr>
+                            <td>Search Efficiency</td>
+                            <td>&lt; 50 moves avg (50% improvement)</td>
+                            <td><span style="color: var(--accent-orange);">40.01 moves</span> vs. 95.41 (random)</td>
+                            <td><span style="color: var(--accent-orange);">58.1% improvement</span> — goal exceeded</td>
+                        </tr>
+                        <tr>
+                            <td>Reinforcement Learning</td>
+                            <td>Exploit human placement bias</td>
+                            <td>Trained bot: <span style="color: var(--accent-orange);">32 moves</span> vs. 40.01 untrained</td>
+                            <td><span style="color: var(--accent-orange);">~20% improvement</span> on biased opponents</td>
+                        </tr>
+                        <tr>
+                            <td>Human vs. AI Win Rate</td>
+                            <td>&gt; 30% win rate</td>
+                            <td><span style="color: var(--accent-orange);">6 wins out of 10</span> live matches</td>
+                            <td><span style="color: var(--accent-orange);">60% win rate</span> — doubled the target</td>
+                        </tr>
+                    </table>
+
+                    <h3>KEY TAKEAWAYS</h3>
+                    <p>
+                        Debugging AI behavior is fundamentally different from debugging code. Most problems came from wrong assumptions baked into the heuristic logic — not syntax errors or missing functions. The model prioritizes plausibility over correctness, which means failures are subtle and only visible through behavioral testing across thousands of simulated games.
+                    </p>
+                    <p>
+                        The heuristic, search strategy, and constraint system also need to be designed together from the start. Adding them incrementally introduced coupling issues that compounded quickly — changes to the probability map affected search behavior in ways that weren't obvious until late in testing.
+                    </p>
+
+                    <h3>DEMO</h3>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: var(--border-thick); margin-bottom: 20px;">
+                        <iframe
+                            src="https://www.youtube.com/embed/mw2FfcR5LOE"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            frameborder="0"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
                 </div>
-
             </section>
 
             <div style="margin-bottom: 40px;">

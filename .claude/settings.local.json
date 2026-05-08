@@ -5,7 +5,9 @@
       "Bash(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\Nyle\\\\Downloads\\\\Work Stuff\\\\Portfolio\\\\radar\" -Force)",
       "Bash(Out-Null)",
       "Bash(Move-Item -Path \"C:\\\\Users\\\\Nyle\\\\Downloads\\\\Work Stuff\\\\Portfolio\\\\RadarThumbnail.jpg\" -Destination \"C:\\\\Users\\\\Nyle\\\\Downloads\\\\Work Stuff\\\\Portfolio\\\\radar\\\\RadarThumbnail.jpg\" -Force)",
-      "Bash(Write-Output \"Done\")"
+      "Bash(Write-Output \"Done\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Nyle\" -Recurse -Filter \"*battleship*\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object FullName)"
     ]
   }
 }
