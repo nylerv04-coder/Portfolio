@@ -172,14 +172,14 @@
 
       <div class="project-body">
 
-        <h3>WHY I BUILT THIS</h3>
+        <h3>BACKGROUND</h3>
         <p>
-          I have always been drawn to surgical robotics, specifically the challenge of making robotic systems precise enough to operate safely around human tissue. When thinking about my deep learning final project, I kept coming back to a problem I had seen across my mechanics coursework: Finite Element Analysis is one of the most powerful tools we have for understanding material behavior under load, but it is slow by design. That trade-off felt like exactly the kind of problem machine learning should be able to solve. So I set out to build a neural network that could replace the physics solver entirely.
+          I have always been interested in surgical robotics, particularly the problem of making robotic systems precise enough to operate safely around human tissue. For my deep learning final project, I wanted to apply the methods from the course to a problem I had run into in my mechanics coursework, using a neural network as a fast surrogate for a physics solver.
         </p>
 
-        <h3>THE PROBLEM</h3>
+        <h3>PROBLEM</h3>
         <p>
-          Soft robotic actuators used in surgical systems need real-time deformation feedback to be controlled precisely. FEA can compute that feedback accurately but takes several milliseconds per solve, which is too slow for a live control loop running hundreds of times per second. The faster you need the answer, the less useful FEA becomes.
+          Soft robotic actuators used in surgical systems need real-time deformation feedback to be controlled precisely. Finite Element Analysis can compute that feedback accurately but takes several milliseconds per solve, which is too slow for a live control loop running hundreds of times per second. A trained neural network can approximate the same mapping at a fraction of the runtime cost.
         </p>
 
         <div class="img-full">
@@ -189,20 +189,20 @@
           </div>
         </div>
 
-        <h3>WHAT I BUILT</h3>
+        <h3>APPROACH</h3>
         <p>
           I generated 10,000 FEA simulations from scratch using scikit-fem, each applying a force with a different magnitude, direction, and position along the boundary of a 2D elastic mesh. Each simulation produced stress values at 231 mesh nodes. A Multi-Layer Perceptron was then trained in PyTorch to learn the mapping from those three force inputs to the full 231-node stress field output simultaneously.
         </p>
         <p>
-          The data generation pipeline was entirely my own work, which is what makes this meaningfully different from standard coursework. No dataset was provided or downloaded. Every training example came from a physics simulation I parameterized and ran myself.
+          The full data generation pipeline was built from scratch rather than pulled from an existing dataset. Every training example came from a physics simulation I parameterized and ran myself.
         </p>
 
         <h3>RESULTS</h3>
         <p>
-          The model achieved a mean R² of <span style="color: var(--accent-orange);">0.9863</span> across all 231 nodes on completely unseen test data, with every node individually scoring above <span style="color: var(--accent-orange);">0.90</span>. Visually the predicted stress fields closely match the FEA ground truth, with the stress concentration at the force application point captured correctly in both location and magnitude.
+          The model achieved a mean R² of <span style="color: var(--accent-orange);">0.9863</span> across all 231 nodes on unseen test data, with every node individually scoring above <span style="color: var(--accent-orange);">0.90</span>. The predicted stress fields closely match the FEA ground truth, with the stress concentration at the force application point captured correctly in both location and magnitude.
         </p>
         <p>
-          On speed, MLP inference runs at <span style="color: var(--accent-orange);">0.464 ms</span> versus <span style="color: var(--accent-orange);">2.5 ms</span> for a single FEA solve, a <span style="color: var(--accent-orange);">5x speedup</span> on this mesh. The more important point is that MLP speed stays constant as geometry grows while FEA time scales with mesh complexity, meaning the real advantage is much larger on realistic 3D geometries.
+          MLP inference ran at <span style="color: var(--accent-orange);">0.464 ms</span> versus <span style="color: var(--accent-orange);">2.5 ms</span> for a single FEA solve, a <span style="color: var(--accent-orange);">5x speedup</span> on this mesh. MLP inference time also stays roughly constant as geometry grows, while FEA time scales with mesh complexity, so the relative advantage increases on realistic 3D geometries.
         </p>
 
         <div class="img-full">
@@ -226,10 +226,12 @@
           </div>
         </div>
 
-        <h3>KEY TAKEAWAYS</h3>
-        <p>
-          The result that stuck with me most was how visibly dataset size affected generalization. At 500 samples there was a clear gap between training and validation loss, a sign of overfitting. Scaling to 10,000 samples nearly closed that gap entirely. Watching that change directly in the loss curves made the concept click in a way that coursework alone had not.
-        </p>
+        <h3>CONCLUSIONS</h3>
+        <ul style="font-weight: bold; margin-bottom: 22px; padding-left: 1.5em;">
+          <li>The MLP successfully predicts full spatial stress fields across all 231 nodes simultaneously, with a mean R² of 0.9863 and every node scoring above 0.90.</li>
+          <li>Inference time of 0.464 ms delivers a 5x speedup over the FEA solver, and unlike FEA this time stays constant regardless of mesh complexity.</li>
+          <li>Prediction accuracy holds consistently across unseen load directions, with minimal overfitting confirmed by closely matched training and validation loss curves.</li>
+        </ul>
 
         <h3>REFERENCES</h3>
         <p style="font-size: 0.9rem; line-height: 1.7;">
